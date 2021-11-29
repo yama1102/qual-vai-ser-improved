@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_170858) do
+ActiveRecord::Schema.define(version: 2021_11_29_190349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "address"
+    t.string "region"
+    t.decimal "price", precision: 6, scale: 2, default: "0.0", null: false
+    t.string "image"
+    t.string "description"
+    t.string "name"
+    t.decimal "rate", precision: 6, scale: 1, default: "0.0", null: false
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "grouped_events", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "event_id", null: false
+    t.integer "votes", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_grouped_events_on_event_id"
+    t.index ["group_id"], name: "index_grouped_events_on_group_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.boolean "adm", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_members_on_group_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +68,9 @@ ActiveRecord::Schema.define(version: 2021_11_29_170858) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "grouped_events", "events"
+  add_foreign_key "grouped_events", "groups"
+  add_foreign_key "groups", "users"
+  add_foreign_key "members", "groups"
+  add_foreign_key "members", "users"
 end
