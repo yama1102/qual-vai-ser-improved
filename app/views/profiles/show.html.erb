@@ -1,0 +1,5 @@
+<%= @user.email %>
+<% if @user != current_user && @friends.exclude?(@user)%>
+<%= link_to 'add friend',friendships_path( @user, friendship:{friend_id: @user.id}), remote:true, method: :post, class: "btn btn-outline-dark btn-sm radius-15" %>
+<!--  - pega o id / vai criar um friend id na tabela friendship / remotavamente ele vai juntar os dois users -->
+<% end %>

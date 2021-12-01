@@ -1,18 +1,17 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
   def index
-    if params[:query].present?
-    sql_query = "email ILIKE :query OR first_name ILIKE :query OR last_name ILIKE :query"
-    @profiles = User.where(sql_query, query: "%#{params[:query]}%")
-  else
-    @profiles = User.all
-    end
+    @users = User.all
   end
-
-   def show
-    @profile = User.find(params[:id])
+  def show
+   @user = User.find(params[:id])
+   @friendship = Friendship.new
+   friendships = Friendship.where(user: current_user)
+   @friends = []
+   friendships.each do |friendship|
+    @friends << User.find(friendship.friend_id)
+   end
   end
-
-  def new
-    @profile = current_user
-  end
+  #  def search
+  #   @user = User.search_by_name(params[:email])
+  # end
 end
