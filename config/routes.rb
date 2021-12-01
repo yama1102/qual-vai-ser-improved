@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: %i[index show new create destroy]
 
-  resources :profiles, only: %i[index show] do
+  resource :profiles, only: %i[show] do
     collection do
       get :search
     end
