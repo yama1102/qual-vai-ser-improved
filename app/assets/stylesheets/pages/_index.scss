@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+  background-image: url(imgfundo.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
