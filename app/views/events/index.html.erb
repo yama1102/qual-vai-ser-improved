@@ -1,13 +1,23 @@
-
-<h1>alouu</h1>
- <%= link_to '+ info',"#", class: "btn btn-outline-dark btn-sm radius-15" %>
-
-
-<% @events.each do |event|%>
-<div class="event-body">
-  <img src="<%= event.image %>">
-  <h5><%= event.name %></h5>
-  <p><%= event.price %></p>
-  <p><%= event.region %></p>
+<div class="cards-banner-bg m-0" >
+  <div class="row m-0">
+    <div class="col-12">
+      <h2 class="title mt-1 pb-0 text-center">EVENTS</h2>
+      <div class="row justify-content-around mb-1 ">
+    </div>
+  </div>
 </div>
+
+<div class="row justify-content-around m-0">
+  <% @events.each do |event|%>
+  <div class="event-body">
+    <img src="<%= event.image %>">
+    <h5><%= event.name %></h5>
+    <p><%= event.price %></p>
+    <p><%= event.region %></p>
+    <p><%= event.description %></p>
+  </div>
+</div>
+  <div class = "event-body text-center">
+    <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm radius-15" %>
+  </div>
 <% end %>
