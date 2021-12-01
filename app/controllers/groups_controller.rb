@@ -25,6 +25,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    if @group.user == current_user
+      @group.destroy
+      redirect_to groups_path, notice: 'Group was successfully destroyed.'
+    end
+  end
+  
   private
 
   def group_params

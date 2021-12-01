@@ -1,3 +1,4 @@
+<h1 style="color: black;"><strong> Choose a name and select your friends </strong></h1>
 
 <div class="container">
   <%= simple_form_for @group do |f| %>
@@ -5,4 +6,7 @@
     <%= f.input 'members', collection: @users, input_html: {multiple: true} %>
     <%= f.button :submit %>
   <% end %>
+  <div>
+    <%= link_to 'Back', groups_path, class: "btn btn-secondary btn-lg mb-4 radius-15 " %>
+  </div>
 </div>
