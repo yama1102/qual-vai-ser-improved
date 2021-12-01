@@ -14,4 +14,3 @@ class FriendshipsController < ApplicationController
   end
 end
 
-# PAG PARA DISPLAY USUÁRIOS
