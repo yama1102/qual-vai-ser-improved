@@ -15,12 +15,6 @@ class GroupsController < ApplicationController
     Member.create!(user: current_user, group: group)
     if group.save
       create_members(members_id, group)
-      # members_id.each do |user_id|
-      #   unless user_id.empty?
-      #     user = User.find(user_id)
-      #     Member.create!(user: user, group: group)
-      #   end
-      # end
       redirect_to group_path(group)
     else
       render :new
