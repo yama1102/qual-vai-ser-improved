@@ -11,7 +11,16 @@ class GroupsController < ApplicationController
   def create
     group = Group.new(group_params)
     group.user = current_user
+    members_id = params[:group][:members]
+    Member.create!(user: current_user, group: group)
     if group.save
+      create_members(members_id, group)
+      # members_id.each do |user_id|
+      #   unless user_id.empty?
+      #     user = User.find(user_id)
+      #     Member.create!(user: user, group: group)
+      #   end
+      # end
       redirect_to group_path(group)
     else
       render :new
@@ -21,6 +30,15 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require('group').permit(:name)
+    params.require('group').permit(:name, :members)
+  end
+
+  def create_members(members_id, group)
+    members_id.each do |user_id|
+      unless user_id.empty?
+        user = User.find(user_id)
+        Member.create!(user: user, group: group)
+      end
+    end
   end
 end

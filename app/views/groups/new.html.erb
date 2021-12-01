@@ -2,6 +2,7 @@
 <div class="container">
   <%= simple_form_for @group do |f| %>
     <%= f.input :name %>
+    <%= f.input 'members', collection: @users, input_html: {multiple: true} %>
     <%= f.button :submit %>
   <% end %>
 </div>
