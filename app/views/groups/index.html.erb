@@ -1,17 +1,14 @@
 <h1> Seus grupos : </h1>
 <%= link_to 'create a group',new_group_path, class: "btn btn-outline-dark btn-sm radius-15" %>
-
 <div class="row justify-content-around m-0">
-  <% @groups.each do |group| %>
-    <div class="card m-3 radius-5" style="width: 13rem;">
-      <div class="flat-card">
-        <div class="card-body">
-          <h5 class="card-title"><%= group.name %></h5>
-        </div>
-        <div class="card-body">
-          <%= link_to 'chat', group_path(group), class: "btn btn-outline-dark btn-sm radius-15" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<% @groups.each do |group|%>
+<div>
+  <ul class="list-group">
+  <li class="list-group-item"><strong>Nome: </strong><%= group.name %></li>
+  <li class="list-group-item"><strong>Administrador: </strong><%= group.user.id %></li>
+
+  <div class = "event-body text-center">
+    <%= link_to '+ info',group_path(group), class: "btn btn-outline-dark btn-sm radius-15" %>
+  </div>
+<% end %>
 </div>

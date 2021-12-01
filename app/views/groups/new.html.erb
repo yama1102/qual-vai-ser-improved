@@ -1,15 +1,11 @@
 <h1 style="color: black;"><strong> Choose a name and select your friends </strong></h1>
-<div>
- <%= render template: "groups/form", group: @group %>
 
-
-
-  <div class="form-actions">
-      <button type="button" class="btn btn-primary btn-lg mb-4 radius-15" data-toggle="modal" data-target="#exampleModalCenter">
-        Create group
-      </button>
-    </div>
-
+<div class="container">
+  <%= simple_form_for @group do |f| %>
+    <%= f.input :name %>
+    <%= f.input 'members', collection: @users, input_html: {multiple: true} %>
+    <%= f.button :submit %>
+  <% end %>
   <div>
     <%= link_to 'Back', groups_path, class: "btn btn-secondary btn-lg mb-4 radius-15 " %>
   </div>
