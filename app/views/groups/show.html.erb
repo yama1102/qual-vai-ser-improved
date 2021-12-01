@@ -1,0 +1,14 @@
+<h1><%= @group.name %></h1>
+<div class="row justify-content-around m-0">
+<div>
+  <div class="group-body">
+    <p><%= @group.user_id %></p>
+      <% @group.members.each do |member| %>
+     <p><%= member.user.id %></p>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'Back', groups_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+  </div>
+</div>
+</div>
