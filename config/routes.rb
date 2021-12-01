@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :events, only: %i[index show]
-
-  resources :groups, only: %i[index show new create destroy]
+  resources :groups, only: %i[index show new create destroy] do
+    resources :grouped_events, only: %i[index new create destroy]
+  end
 
   resources :profiles, only: %i[index show] do
     collection do
@@ -11,6 +12,4 @@ Rails.application.routes.draw do
     end
   end
   resources :friendships, only: %i[new create]
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
