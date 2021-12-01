@@ -11,6 +11,9 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+$('.carousel').carousel({
+  interval: 3000
+})
 
 
 // ----------------------------------------------------

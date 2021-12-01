@@ -1,1 +1,51 @@
 // Specific CSS for your home-page
+
+.container {
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 600px;
+  height: 75px;
+}
+
+.btn-ghost {
+  color:  rgb(120, 21, 233);
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  border: 0;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.icon-search {
+  font-size: 20px;
+}
+
+.destaques {
+  color: #ffffff;
+}
+
+.neonLand {
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #f586ec,
+      0 0 82px #f586ec,
+      0 0 92px #f586ec,
+      0 0 102px #f586ec,
+      0 0 151px #f586ec;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
