@@ -1,7 +1,7 @@
 <div class="cards-banner-bg m-0" >
   <div class="row m-0">
     <div class="col-12">
-      <h2 class="title mt-1 pb-0 text-center">EVENTS</h2>
+      <h2 style = "color:white"class="title mt-1 pb-0 text-center">EVENTS</h2>
       <div class="row justify-content-around mb-1 ">
     </div>
   </div>
@@ -9,7 +9,7 @@
 
 <div class="row justify-content-around m-0">
   <% @events.each do |event|%>
-  <div class="event-body">
+  <div class="event-body", style = "color:white">
     <img src="<%= event.image %>">
     <h5 style="color: white;"><%= event.name %></h5>
     <p style="color: white;">A partir de <%= event.price %></p>

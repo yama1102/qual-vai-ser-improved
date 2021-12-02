@@ -2,15 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :events, only: %i[index show]
-
-  resources :groups, only: %i[index show new create destroy]
-
-  resources :profiles, only: %i[index show] do
-    collection do
-      get :search
+  resources :groups, only: %i[index show new create destroy] do
+    resources :grouped_events, only: %i[index new create destroy] do
+      collection do
+        get 'votes'
+        post 'votes', to: "grouped_events#add_vote"
+        get 'result', to: "grouped_events#result"
+      end
     end
   end
-  resources :friendships, only: %i[new create]
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resource :profiles, only: %i[show]
+  resources :friendships, only: %i[new create]
 end

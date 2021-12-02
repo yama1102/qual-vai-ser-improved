@@ -1,0 +1,9 @@
+<h1 style="color:white">add</h1>
+<% @users.each do |user|%>
+  <%= simple_form_for @friendship do |f| %>
+    <%= user.email %>
+    <%= f.hidden_field :user_id, value: user.id%>
+
+    <%= f.submit "add this user"%>
+  <% end %>
+<% end %>
