@@ -11,10 +11,11 @@
   <% @events.each do |event|%>
   <div class="event-body">
     <img src="<%= event.image %>">
-    <h5><%= event.name %></h5>
-    <p><%= event.price %></p>
-    <p><%= event.region %></p>
-    <p><%= event.description %></p>
+    <h5 style="color: white;"><%= event.name %></h5>
+    <p style="color: white;">A partir de <%= event.price %></p>
+    <p style="color: white;"><%= event.region %></p>
+    <p style="color: white;"><%= event.address %></p>
+    <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
   </div>
 </div>
   <div class = "event-body text-center">
