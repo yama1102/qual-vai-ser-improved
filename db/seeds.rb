@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+require "open-uri"
 
 User.create!(email: 'maria@email.com', password: '123456')
 
@@ -27,14 +29,22 @@ numbers.each do |i|
   end
 end
 
-Event.create!(
-  address: "Rua A, 3, bairro Santa Maria",
-  region: "Sudeste",
-  price: 200.00,
-  image: "https://static.cardkingdom.com/images/magic-the-gathering/dragons-maze/tithe-drinker-33674.jpg",
-  description: "All incluse, área Vip, bebida que pisca, balada eletrônica",
-  name: "Eletro Night",
-  date: Date.new(2021, 12, 31)
-)
-
 GroupedEvent.create!(group: Group.first, event: Event.first)
+
+Event.destroy_all
+
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath = '/home/campos1984/code/AnaPaula0712/Qual-vai-ser/db/reveillon_nordeste5.csv'
+
+CSV.foreach(filepath, csv_options) do |row|
+  file = URI.open(row[7].split("url('")[1].slice(0...-5))
+  event = Event.create!(
+    name: row[4],
+    address: row[6],
+    region: "Nordeste",
+    date: row[5],
+    price: row[8],
+    description: row[9]
+  )
+  event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+end
