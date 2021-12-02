@@ -6,10 +6,6 @@ Rails.application.routes.draw do
     resources :grouped_events, only: %i[index new create destroy]
   end
 
-  resources :profiles, only: %i[index show] do
-    collection do
-      get :search
-    end
-  end
+  resource :profiles, only: %i[show] 
   resources :friendships, only: %i[new create]
 end
