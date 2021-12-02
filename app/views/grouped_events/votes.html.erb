@@ -1,0 +1,26 @@
+<div class="destaques neonLand my-5">
+  <h1>Votação</h1>
+</div>
+
+<div class="text-light">
+  <h2>Eventos para votação</h2>
+</div>
+
+<% @grouped_events.each do |grouped_event| %>
+
+<div class="card-product m-5 w-50">
+    <img src="<%= grouped_event.event.image %>">
+    <div class="card-product-infos mt-3 mb-3">
+      <h2><%= grouped_event.event.name %></h2>
+      <p><strong>Votação: <%= grouped_event.votes %></strong></p>
+      <p>Preço: <%= grouped_event.event.price %></p>
+      <p>Região: <%= grouped_event.event.region %></p>
+      <%= link_to "Vote", votes_group_grouped_events_path(grouped_event_id: grouped_event.id), method: :post, class: "btn btn-primary"%>
+    </div>
+</div>
+
+<div>
+  <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+</div>
+
+<% end %>
