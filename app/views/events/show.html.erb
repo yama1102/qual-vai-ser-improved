@@ -18,7 +18,7 @@
   </div>
 </div>
 
-
+<%= link_to 'favoritar', favorites_events_path(event_id: @event), method: :post, class: "btn btn-outline-dark btn-sm radius-15" %>
 <div class="row justify-content-around m-0">
   <%= link_to 'Back', events_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
 </div>

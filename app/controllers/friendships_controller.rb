@@ -13,4 +13,3 @@ class FriendshipsController < ApplicationController
     redirect_to profiles_path
   end
 end
-
