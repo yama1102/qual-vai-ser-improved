@@ -4,5 +4,4 @@ class ProfilesController < ApplicationController
    @user = current_user
    @friendships = Friendship.where({ user_id: current_user.id })
   end
-  
 end

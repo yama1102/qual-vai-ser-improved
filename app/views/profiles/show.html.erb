@@ -1,11 +1,42 @@
 
- <h1 style="color: white">ALOW</h1>
-<div style="color: white"><%= @user.email %></div>
+<body>
+  <div><h2 style="color: white">Bem-vindo, <%= @user.email %></h2></div>
+    <div class="row justify-content-around m-0">
+      <div class="box" id="one">
+       <div style="color: white; text-align:center;">
+        <h4>Your favorite events</h4>
+      </div>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2 style="color: black">Product name</h2>
+            <p style="color: black">Product description with <strong>relevant info</strong> only.</p>
+          </div>
+        </div>
+        <div class="button" style="text-align:center;">
+          <%= link_to 'show more', profiles_path, remote: true, method: :post, class: "btn btn-outline-primary btn-sm radius-15" %>
+        </div>
+      </div>
 
-<div>
-  <h4 style="color: white">your added friends:</h4>
-    <% @friendships.each do |friendship| %>
-        <h5 style="color: white"><%= friendship.friend_id %></h5>
-    <% end %>
- </div>
-<%= link_to 'add a new friend',new_friendship_path, class: "btn btn-outline-dark btn-sm radius-15" %>
+      <div class="button" id="group-button">
+        <%= link_to 'Your groups',groups_path, class: "btn btn-outline-primary btn-sm radius-15" %>
+      </div>
+
+      <div class="div"></div>
+
+      <div class="box" id="two">
+        <h4 style="color: white; text-align:center;">your added friends:</h4>
+        <div class="row justify-content-around m-0">
+          <% @friendships.each do |friendship| %>
+              <h5 style="color: white"><%= friendship.friend_id %></h5>
+          <% end %>
+        </div>
+
+        <div class="button"style="text-align:center;">
+          <%= link_to 'add a new friend',new_friendship_path, class: "btn btn-outline-primary btn-sm radius-15" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
