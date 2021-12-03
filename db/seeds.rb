@@ -29,17 +29,6 @@ numbers.each do |i|
   end
 end
 
-<<<<<<< HEAD
-Event.create!(
-  address: "Rua A, 3, bairro Bela Vista",
-  region: "Sudeste",
-  price: 150.00,
-  image: "https://image.shutterstock.com/z/stock-photo-nice-attractive-stylish-cheerful-cheery-positive-carefree-guys-ladies-having-fun-hanging-out-best-1436812790.jpg",
-  description: "All incluse, área Vip, bebida que pisca, balada eletrônica",
-  name: "Eletro Night",
-  date: Date.new(2021,12, 31)
-)
-=======
 Event.destroy_all
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
@@ -121,27 +110,6 @@ end
 #   )
 #   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
 # end
->>>>>>> master
-
-Event.create!(
-  address: "Rua B, 3, bairro Santa Maria",
-  region: "Sudeste",
-  price: 200.00,
-  image: "https://image.shutterstock.com/z/stock-photo-young-people-dancing-in-night-club-351380480.jpg",
-  description: "Otima balada",
-  name: "Lemon",
-  date: Date.new(2021, 12, 30)
-)
-
-Event.create!(
-  address: "Rua C, 3, bairro Vila Olimpia",
-  region: "Sudeste",
-  price: 250.00,
-  image: "https://image.shutterstock.com/z/stock-photo-dj-with-headphones-at-night-club-party-under-the-blue-light-and-people-crowd-in-background-287171675.jpg",
-  description: "O melhor balada do bairro",
-  name: "Vila Mix",
-  date: Date.new(2021, 12, 30)
-)
 
 GroupedEvent.create!(group: Group.first, event: Event.all[0])
 GroupedEvent.create!(group: Group.first, event: Event.all[1])
