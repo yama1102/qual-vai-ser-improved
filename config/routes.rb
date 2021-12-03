@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       collection do
         get 'votes'
         post 'votes', to: "grouped_events#add_vote"
+        delete 'votes', to: "grouped_events#cancel_vote"
         get 'result', to: "grouped_events#result"
       end
     end

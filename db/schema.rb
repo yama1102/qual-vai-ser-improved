@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_190132) do
+ActiveRecord::Schema.define(version: 2021_12_02_201418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_190132) do
   create_table "grouped_events", force: :cascade do |t|
     t.bigint "group_id", null: false
     t.bigint "event_id", null: false
-    t.integer "votes", default: 0, null: false
+    t.integer "points", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_grouped_events_on_event_id"
@@ -113,6 +113,17 @@ ActiveRecord::Schema.define(version: 2021_12_02_190132) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.bigint "grouped_event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_votes_on_group_id"
+    t.index ["grouped_event_id"], name: "index_votes_on_grouped_event_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "events"
@@ -123,4 +134,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_190132) do
   add_foreign_key "groups", "users"
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
+  add_foreign_key "votes", "grouped_events"
+  add_foreign_key "votes", "groups"
+  add_foreign_key "votes", "users"
 end

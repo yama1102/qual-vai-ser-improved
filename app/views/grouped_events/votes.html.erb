@@ -9,10 +9,10 @@
 <% @grouped_events.each do |grouped_event| %>
 
 <div class="card-product m-5 w-50">
-    <img src="<%= grouped_event.event.image %>">
+    <%= cl_image_tag grouped_event.event.photo.key, height: 134, width: 262, crop: :fill %>
     <div class="card-product-infos mt-3 mb-3">
       <h2><%= grouped_event.event.name %></h2>
-      <p><strong>Votação: <%= grouped_event.votes %></strong></p>
+      <p><strong>Votação: <%= grouped_event.points %></strong></p>
       <p>Preço: <%= grouped_event.event.price %></p>
       <p>Região: <%= grouped_event.event.region %></p>
       <%= link_to "Vote", votes_group_grouped_events_path(grouped_event_id: grouped_event.id), method: :post, class: "btn btn-primary"%>
@@ -20,6 +20,10 @@
 </div>
 
 <% end %>
+
+<div>
+  <%= link_to "Cancelar sua votação", votes_group_grouped_events_path(@group), method: :delete, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+</div>
 
 <div>
   <%= link_to "Finalizar votação", result_group_grouped_events_path(@group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>

@@ -111,4 +111,8 @@ end
 #   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
 # end
 
-GroupedEvent.create!(group: Group.first, event: Event.first)
+GroupedEvent.create!(group: Group.first, event: Event.all[0])
+GroupedEvent.create!(group: Group.first, event: Event.all[1])
+GroupedEvent.create!(group: Group.first, event: Event.all[2])
+
+# Vote.create!(group: Group.first, user: User.first, grouped_event: GroupedEvent.first)
