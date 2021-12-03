@@ -1,9 +1,15 @@
 <h1 style="color:white">add</h1>
-<% @users.each do |user|%>
-  <%= simple_form_for @friendship do |f| %>
-    <%= user.email %>
-    <%= f.hidden_field :user_id, value: user.id%>
+  <% @users.each do |user|%>
+    <div class="row card m-3 radius-5" style=" width: 13rem;">
+      <div class="flat-card">
+        <div class="card-body">
+          <%= simple_form_for @friendship do |f| %>
+            <%= user.email %>
+            <%= f.hidden_field :user_id, value: user.id%>
 
-    <%= f.submit "add this user"%>
+            <%= f.submit "add this user"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-<% end %>
