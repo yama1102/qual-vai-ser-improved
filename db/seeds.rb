@@ -8,7 +8,7 @@
 require 'csv'
 require "open-uri"
 
-# User.create!(email: 'maria@email.com', password: '123456')
+User.create!(email: 'maria@email.com', password: '123456')
 
 require 'faker'
 # User.destroy_all
