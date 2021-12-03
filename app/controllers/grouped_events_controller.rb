@@ -19,7 +19,7 @@ class GroupedEventsController < ApplicationController
   end
 
   def result
-    @grouped_events = GroupedEvent.where({ group_id: params[:group_id] }).order('votes DESC').limit(1)
+    @grouped_events = GroupedEvent.where({ group_id: params[:group_id] }).order('points DESC').limit(1)
   end
 
   def cancel_vote
