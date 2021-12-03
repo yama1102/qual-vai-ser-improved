@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :current_event, only: %i[toggle_favorites show]
+  before_action :current_event, only: %i[toggle_favorite show]
   def index
     @events = Event.all
   end
@@ -8,12 +8,11 @@ class EventsController < ApplicationController
   def toggle_favorite
     favorite_exist = Favorite.where(event: @event, user: current_user)
     if favorite_exist[0].nil?
-      favorite = Favorite.new(params[:event])
+      favorite = Favorite.new(event: @event)
       favorite.user = current_user
       favorite.save
-      redirect_to profiles_path
     else
-      Favorite.destroy(favorite_exist)
+      favorite_exist.each(&:destroy)
     end
   end
 
