@@ -1,24 +1,28 @@
-<div class="cards-banner-bg m-0" >
+<div class="events-banner-bg m-0" >
   <div class="row m-0">
     <div class="col-12">
-      <h2 style = "color:white"class="title mt-1 pb-0 text-center">EVENTS</h2>
-      <div class="row justify-content-around mb-1 ">
+      <h2 style = "color:white"class="destaques neonLand my-5">EVENTOS</h2>
     </div>
   </div>
-</div>
-
-<div class="row justify-content-around m-0">
-  <% @events.each do |event|%>
-  <div class="event-body", style = "color:white">
-    <img src="<%= event.image %>">
-    <h5><%= event.name %></h5>
-    <p><%= event.price %></p>
-    <p><%= event.region %></p>
-    <p><%= event.description %></p>
+  <div class="row justify-content-around m-0">
+    <% @events.each do |event|%>
+      <div class="event-body col-3">
+        <div class="flat-card">
+          <div>
+            <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
+          </div>
+          <div class="event-body">
+            <h6><strong><%= event.name %></strong></h5>
+            <p style="color:red;">A partir de <%= event.price %></p>
+            <p><%= event.region %></p>
+            <p><%= event.address %></p>
+          </div>
+          <div class="event-body">
+            <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
  
 </div>
-  <div class = "event-body text-center">
-    <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm radius-15" %>
-  </div>
-<% end %>

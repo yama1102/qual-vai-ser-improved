@@ -12,6 +12,10 @@ class GroupedEventsController < ApplicationController
     redirect_to votes_group_grouped_events_path(grouped_event.group)
   end
 
+  def result
+    @grouped_events = GroupedEvent.where({ group_id: params[:group_id] }).order('votes DESC').limit(1)
+  end
+
   private
 
   def set_group_grouped_event
