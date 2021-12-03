@@ -32,7 +32,7 @@ end
 Event.destroy_all
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath1 = '/home/campos1984/code/AnaPaula0712/Qual-vai-ser/db/rev_nordeste_all.csv'
+filepath1 = 'rev_nordeste_all.csv'
 
 CSV.foreach(filepath1, csv_options) do |row|
   file = URI.open(row[8].split("url('")[1].slice(0...-5))
@@ -64,7 +64,7 @@ end
 # end
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath3 = '/home/campos1984/code/AnaPaula0712/Qual-vai-ser/db/rev_sudestebh.csv'
+filepath3 = 'rev_sudestebh.csv'
 
 CSV.foreach(filepath3, csv_options) do |row|
   file = URI.open(row[8].split("url('")[1].slice(0...-5))
