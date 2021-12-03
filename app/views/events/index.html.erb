@@ -9,14 +9,14 @@
       <h2 style = "color:white"class="destaques neonLand my-5">EVENTOS</h2>
     </div>
   </div>
-  <div class="row justify-content-around m-0">
+  <div class="row justify-content-center m-0">
     <% @events.each do |event|%>
       <div class="event-body col-3">
         <div class="flat-card">
           <div>
             <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
           </div>
-          <div class="event-body">
+          <div class="event-text">
             <h6><strong><%= event.name %></strong></h5>
             <p style="color:red;">A partir de <%= event.price %></p>
             <p><%= event.region %></p>

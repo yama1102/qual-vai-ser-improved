@@ -48,9 +48,6 @@ h2, .h2 {
 }
 
 .flat-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   background-color: rgb(248, 246, 246);
@@ -60,13 +57,23 @@ h2, .h2 {
   opacity: 1.0;
   border-radius: 10px;
   width: 262px;
-  height: 358px;
+  height: 390px;
   margin-top: 10px;
   margin-bottom: 10px;
+  img {
+    border-radius: 10px;
+  }
 }
 
 .event-body {
-  color: #140A48
+  display: flex;
+  justify-content: center;
+}
+
+.event-text {
+  color: #140A48;
+  margin-top: 10px;
+  margin-left: 2px;
 }
 
 .card:hover{
