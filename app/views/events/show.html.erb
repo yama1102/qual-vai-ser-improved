@@ -1,27 +1,24 @@
 <h1 class= "text-white"><%= @event.name %></h1>
 
-  <div class="dispo mt-5 ">
-    <div class="row" id="background">
-      <div class="col-lg-6 mb-5">
-        <div class="img" style="text-align:center; mt-10">
-          <img src="<%= @event.image %>">
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>Nome: </strong>
-          <li class="list-group-item"><strong>Endereço: </strong>
-          <li class="list-group-item"><strong>Região: </strong>
-          <li class="list-group-item"><strong>Descrição: </strong>
-          <li class="list-group-item"><strong>Preço: </strong>
-        </ul>
-    </div>
+<div class="photo">
+  <%= cl_image_tag @event.photo.key, crop: :fill %>
+</div>
+
+<div class="row justify-content-center">
+  <div class="show-event">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Endereço: </strong><%= @event.address %></li>
+      <li class="list-group-item"><strong>Região: </strong><%= @event.region %></li>
+      <li class="list-group-item"><strong>Preço: A partir de <%= @event.price %></strong></li>
+      <li class="list-group-item"><strong>Avaliação: </strong></li>
+      <li class="list-group-item"><strong>Descrição: </strong><%= @event.description %></li>
+    </ul>
   </div>
 </div>
 
-<div style="text-align:center">
-  <%= link_to 'favoritar', favorites_event_path(@event), method: :post, class: "btn btn-outline-dark btn-sm radius-15" %>
+<div class="row justify-content-around m-0">
+  <%= link_to 'Back', events_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
 </div>
 <div style="text-align:center">
-  <%= link_to 'Back', events_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+  <%= link_to 'Profile', profiles_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
 </div>
