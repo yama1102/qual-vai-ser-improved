@@ -5,6 +5,7 @@ class FriendshipsController < ApplicationController
     @users = User.where.not(id: current_user)
     @friendship = Friendship.new
   end
+  
   def create
     friendship = Friendship.new
     friendship.user = current_user
@@ -13,4 +14,3 @@ class FriendshipsController < ApplicationController
     redirect_to profiles_path
   end
 end
-

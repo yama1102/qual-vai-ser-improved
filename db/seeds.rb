@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+require "open-uri"
 
 User.create!(email: 'maria@email.com', password: '123456')
 
@@ -27,6 +29,7 @@ numbers.each do |i|
   end
 end
 
+<<<<<<< HEAD
 Event.create!(
   address: "Rua A, 3, bairro Bela Vista",
   region: "Sudeste",
@@ -36,6 +39,89 @@ Event.create!(
   name: "Eletro Night",
   date: Date.new(2021,12, 31)
 )
+=======
+Event.destroy_all
+
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath1 = 'rev_nordeste_all.csv'
+
+CSV.foreach(filepath1, csv_options) do |row|
+  file = URI.open(row[8].split("url('")[1].slice(0...-5))
+  event = Event.create!(
+    name: row[4],
+    address: row[6],
+    region: "Nordeste",
+    date: row[5],
+    price: row[9],
+    description: row[7]
+  )
+  event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+end
+
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath2 = '/home/campos1984/code/AnaPaula0712/Qual-vai-ser/db/rev_sudeste_all.csv'
+
+# CSV.foreach(filepath2, csv_options) do |row|
+#   file = URI.open(row[8].split("url('")[1].slice(0...-5))
+#   event = Event.create!(
+#     name: row[4],
+#     address: row[6],
+#     region: "Sudeste",
+#     date: row[5],
+#     price: row[9],
+#     description: row[7]
+#   )
+#   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+# end
+
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath3 = 'rev_sudestebh.csv'
+
+CSV.foreach(filepath3, csv_options) do |row|
+  file = URI.open(row[8].split("url('")[1].slice(0...-5))
+  event = Event.create!(
+    name: row[4],
+    address: row[6],
+    region: "Sudeste",
+    date: row[5],
+    price: row[9],
+    description: row[7]
+  )
+  event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+end
+
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath4 = '/home/campos1984/code/AnaPaula0712/Qual-vai-ser/db/rev_sudesterj.csv'
+
+# CSV.foreach(filepath4, csv_options) do |row|
+#   file = URI.open(row[8].split("url('")[1].slice(0...-5))
+#   event = Event.create!(
+#     name: row[4],
+#     address: row[6],
+#     region: "Sudeste",
+#     date: row[5],
+#     price: row[9],
+#     description: row[7]
+#   )
+#   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+# end
+
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath5 = '/home/campos1984/code/AnaPaula0712/Qual-vai-ser/db/rev_sul.csv'
+
+# CSV.foreach(filepath5, csv_options) do |row|
+#   file = URI.open(row[8].split("url('")[1].slice(0...-5))
+#   event = Event.create!(
+#     name: row[4],
+#     address: row[6],
+#     region: "Sul",
+#     date: row[5],
+#     price: row[9],
+#     description: row[7]
+#   )
+#   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+# end
+>>>>>>> master
 
 Event.create!(
   address: "Rua B, 3, bairro Santa Maria",
