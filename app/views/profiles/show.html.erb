@@ -1,6 +1,6 @@
 
 <body>
-  <div><h2 style="color: white">Bem-vindo, <%= @user.email %></h2></div>
+  <div><h2 style="color: white">Bem-vindo, <%= current_user.email %></h2></div>
     <div class="row justify-content-around m-0">
       <div class="box" id="one">
        <div style="color: white; text-align:center;">
@@ -38,5 +38,8 @@
 
       </div>
     </div>
+  </div>
+  <div class="button"style="text-align:center;">
+    <%= link_to 'Voltar',events_path, class: "btn btn-outline-primary btn-sm radius-15" %>
   </div>
 </body>
