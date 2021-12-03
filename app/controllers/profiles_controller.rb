@@ -4,8 +4,8 @@ class ProfilesController < ApplicationController
     @favorite = Favorite.new(user: current_user)
   end
 
-
   def show
-   @friendships = Friendship.where({ user_id: current_user.id })
+    @user = current_user
+    @friendships = Friendship.where({ user_id: current_user.id })
   end
 end
