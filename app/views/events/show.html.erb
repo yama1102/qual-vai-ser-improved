@@ -19,7 +19,9 @@
   </div>
 </div>
 
-
+<div style="text-align:center">
+  <%= link_to 'favoritar', favorites_event_path(@event), method: :post, class: "btn btn-outline-dark btn-sm radius-15" %>
+</div>
 <div style="text-align:center">
   <%= link_to 'Back', events_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
 </div>

@@ -1,0 +1,14 @@
+.icon span{
+  height: 60px;
+  width: 60px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 50px;
+}
+.icon span:hover{
+ background: yellow;
+ -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
+}
