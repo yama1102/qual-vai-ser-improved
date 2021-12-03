@@ -28,13 +28,37 @@ numbers.each do |i|
 end
 
 Event.create!(
-  address: "Rua A, 3, bairro Santa Maria",
+  address: "Rua A, 3, bairro Bela Vista",
   region: "Sudeste",
-  price: 200.00,
-  image: "https://static.cardkingdom.com/images/magic-the-gathering/dragons-maze/tithe-drinker-33674.jpg",
+  price: 150.00,
+  image: "https://image.shutterstock.com/z/stock-photo-nice-attractive-stylish-cheerful-cheery-positive-carefree-guys-ladies-having-fun-hanging-out-best-1436812790.jpg",
   description: "All incluse, área Vip, bebida que pisca, balada eletrônica",
   name: "Eletro Night",
-  date: Date.new(2021, 12, 31)
+  date: Date.new(2021,12, 31)
 )
 
-GroupedEvent.create!(group: Group.first, event: Event.first)
+Event.create!(
+  address: "Rua B, 3, bairro Santa Maria",
+  region: "Sudeste",
+  price: 200.00,
+  image: "https://image.shutterstock.com/z/stock-photo-young-people-dancing-in-night-club-351380480.jpg",
+  description: "Otima balada",
+  name: "Lemon",
+  date: Date.new(2021, 12, 30)
+)
+
+Event.create!(
+  address: "Rua C, 3, bairro Vila Olimpia",
+  region: "Sudeste",
+  price: 250.00,
+  image: "https://image.shutterstock.com/z/stock-photo-dj-with-headphones-at-night-club-party-under-the-blue-light-and-people-crowd-in-background-287171675.jpg",
+  description: "O melhor balada do bairro",
+  name: "Vila Mix",
+  date: Date.new(2021, 12, 30)
+)
+
+GroupedEvent.create!(group: Group.first, event: Event.all[0])
+GroupedEvent.create!(group: Group.first, event: Event.all[1])
+GroupedEvent.create!(group: Group.first, event: Event.all[2])
+
+# Vote.create!(group: Group.first, user: User.first)
