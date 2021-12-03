@@ -61,4 +61,4 @@ GroupedEvent.create!(group: Group.first, event: Event.all[0])
 GroupedEvent.create!(group: Group.first, event: Event.all[1])
 GroupedEvent.create!(group: Group.first, event: Event.all[2])
 
-# Vote.create!(group: Group.first, user: User.first)
+# Vote.create!(group: Group.first, user: User.first, grouped_event: GroupedEvent.first)

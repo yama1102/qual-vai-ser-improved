@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_201418) do
   create_table "grouped_events", force: :cascade do |t|
     t.bigint "group_id", null: false
     t.bigint "event_id", null: false
-    t.integer "votes", default: 0, null: false
+    t.integer "points", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_grouped_events_on_event_id"
@@ -79,9 +79,11 @@ ActiveRecord::Schema.define(version: 2021_12_02_201418) do
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "group_id", null: false
+    t.bigint "grouped_event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_votes_on_group_id"
+    t.index ["grouped_event_id"], name: "index_votes_on_grouped_event_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_201418) do
   add_foreign_key "groups", "users"
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
+  add_foreign_key "votes", "grouped_events"
   add_foreign_key "votes", "groups"
   add_foreign_key "votes", "users"
 end
