@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       post 'favorites', to: "events#toggle_favorite"
     end
+
   end
   resources :groups, only: %i[index show new create destroy] do
     resources :grouped_events, only: %i[index new create destroy] do
