@@ -12,9 +12,9 @@
     </div>
     <div class="row d-flex justify-content-center">
     <div>
-      <%= link_to 'Survey room', group_grouped_events_path(@group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
-      <%= link_to "Fazer a votação", votes_group_grouped_events_path(@group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
-      <%= link_to 'Voltar', groups_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+      <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
+      <%= link_to "vote", votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
+      <%= link_to "todos os grupos", groups_path(@group), class: "btn btn-primary btn-sm" %>
     </div>
   </div>
 </div>

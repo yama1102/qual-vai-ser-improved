@@ -1,11 +1,29 @@
 
 <div class="destaques neonLand my-5">
-  <h1>Survey Room</h1>
+  <h1>ENQUETE</h1>
 </div>
+<div class="text-light" style="text-align:center;">
+  <h5>Adicione seu evento preferido a enquete</h5>
+</div>
+<div class="container my-4">
+    <div class="row">
+      <form>
+        <div class="form-row mt-3">
+          <div class="col-5">
+            <input type="text" class="form-control border-0" placeholder="Localização">
+          </div>
+          <div class="col-5">
+            <input type="text" class="form-control border-0" placeholder="Data">
+          </div>
+          <div class="col-2">
+            <a class="btn btn-ghost" href="#"><i class="fas fa-search icon-search"></i></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 
-<div class="text-light">
-  <h2>Eventos Selecionados</h2>
-</div>
+
 
 <% @grouped_events.each do |grouped_event| %>
 
@@ -16,35 +34,16 @@
     <p><%= grouped_event.event.region %></p>
     <p><%= grouped_event.event.description %></p>
   </div>
-
 <% end %>
 
-<div class="text-light">
-  <h2>Pesquisar eventos</h2>
-</div>
 
-<form>
-  <div class="form-row mt-3">
-    <div class="col-5">
-      <input type="text" class="form-control border-0" placeholder="Localização">
-    </div>
-    <div class="col-5">
-      <input type="text" class="form-control border-0" placeholder="Data">
-    </div>
-    <div class="col-2">
-      <a class="btn btn-ghost" href="#"><i class="fas fa-search icon-search"></i></a>
-    </div>
+
+<div class="row justify-content-around m-0 text-white">
+  <div class="text-align center">
+    <a href="#" class ="btn btn-primary btn-sm">Adicionar Evento</a>
+
+    <%= link_to "Vote", votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
+
+    <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-primary btn-sm" %>
   </div>
-</form>
-
-<div>
-  <a href="#" class ="btn btn-secondary btn-lg mt-3 mb-4 radius-15">Adicionar Evento</a>
-</div>
-
-<div>
-  <%= link_to "Fazer a votação", votes_group_grouped_events_path(@group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
-</div>
-
-<div>
-  <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
 </div>

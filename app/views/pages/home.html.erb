@@ -1,24 +1,10 @@
 <div class="backland">
-  <div class="container my-5">
-    <div class="row">
-      <form>
-        <div class="form-row mt-3">
-          <div class="col-5">
-            <input type="text" class="form-control border-0" placeholder="Localização">
-          </div>
-          <div class="col-5">
-            <input type="text" class="form-control border-0" placeholder="Data">
-          </div>
-          <div class="col-2">
-            <a class="btn btn-ghost" href="#"><i class="fas fa-search icon-search"></i></a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100" data-ride="carousel">
-    <div class="carousel-inner mx-auto" style="width: 1208px; height: 574px; border-radius: 15px;">
+    <div style="text-align:center">
+      <%= link_to 'todos os eventos', events_path, class: "btn btn-danger"%>
+    </div>
+    <div class="carousel-inner mx-auto" style="width: 1208px; height: 550px; border-radius: 15px;" >
+
       <% 10.times do |i| %>
         <div class="carousel-item <%= "active" if i.zero? %>">
             <%= image_tag("img#{i + 1}.jpg", class: "d-block w-100") %>
@@ -26,12 +12,4 @@
       <%end%>
     </div>
   </div>
-
-  <div class="destaques neonLand my-5">
-    <h1>Destinos quentes</h1>
-  </div>
-<div style="text-align:center">
-  <%= link_to 'search', events_path, class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
-</div>
-
 </div>
