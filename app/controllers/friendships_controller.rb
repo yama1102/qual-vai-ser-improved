@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
     @users = User.where.not(id: current_user)
     @friendship = Friendship.new
   end
-  
+
   def create
     friendship = Friendship.new
     friendship.user = current_user
@@ -13,4 +13,7 @@ class FriendshipsController < ApplicationController
     friendship.save
     redirect_to profiles_path
   end
+  #  def search
+  #   @users = User.search_by_email(params[:email])
+  # end
 end
