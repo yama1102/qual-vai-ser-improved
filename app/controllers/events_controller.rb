@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :current_event, only: %i[ toggle_favorite show]
+  before_action :current_event, only: %i[toggle_favorite show]
 
   def index
     @events = Event.all
