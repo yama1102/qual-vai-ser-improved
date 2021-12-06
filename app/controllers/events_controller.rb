@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     if favorite_exist[0].nil?
       @favorite = Favorite.new(event: @event)
       @favorite.user = current_user
-      @favorite.save
+      @favorite.save!
     else
       favorite_exist.each(&:destroy)
     end
