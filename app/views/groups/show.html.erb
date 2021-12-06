@@ -14,15 +14,9 @@
     <%= simple_form_for [@group, @message], remote: true do |f| %>
       <%= f.input :content, label: false, placeholder: "Message ##{@group.name}" %>
     <% end %>
-    <div id="messages" data-chatroom-id="<%= @group.id %>">
+    <div id="messages" data-group-id="<%= @group.id %>">
       <% @group.messages.each do |message| %>
-        <div class="message-container" id="message-<%= @group.id %>">
-          <i class="author">
-            <span><%= message.user.email %></span>
-            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </i>
-          <p><%= message.content %></p>
-        </div>
+        <%= render "message", group: @group, message: message %>
       <% end %>
     </div>
 

@@ -5,9 +5,13 @@ class MessagesController < ApplicationController
     @message.group = @group
     @message.user = current_user
     if @message.save
+      GroupChannel.broadcast_to(
+        @group,
+        render_to_string(partial: "groups/message", locals: { message: @message })
+      )
       redirect_to group_path(@group, anchor: "message-#{@message.id}")
     else
-      render "chatrooms/show"
+      render "groups/show"
     end
   end
 
