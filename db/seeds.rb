@@ -8,7 +8,9 @@
 require 'csv'
 require "open-uri"
 
-User.create!(email: 'maria@email.com', password: '123456')
+file = URI.open ('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+user1 = User.create!(email: 'maria@email.com', password: '123456')
+user1.photo.attached(io: file, filename: 'photo.png',content_type: 'image/png')
 
 require 'faker'
 # User.destroy_all
