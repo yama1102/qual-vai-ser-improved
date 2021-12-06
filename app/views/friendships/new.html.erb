@@ -1,9 +1,9 @@
 <div class="busca" style= "margin:40px 450px 30px 450px;">
   <%= form_with url: search_friendships_url, method: :get do %>
-    <%= text_field_tag :email,
-        params[:email],
+    <%= text_field_tag :nickname,
+        params[:nickname],
         class: "form-control",
-        placeholder: "Digite um email"
+        placeholder: "Digite um nome"
     %>
     <div style="text-align: center; margin:20px ">
       <%= submit_tag 'Pesquisar', class: "btn btn-dark" %>

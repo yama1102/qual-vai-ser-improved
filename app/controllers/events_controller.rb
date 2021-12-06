@@ -6,7 +6,6 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-
   def toggle_favorite
     favorite_exist = Favorite.where(event: @event, user: current_user)
     if favorite_exist[0].nil?
@@ -18,11 +17,27 @@ class EventsController < ApplicationController
     end
   end
 
-  def current_event
-    @event = Event.find(params[:id])
+  def show
+    if @event.latitude && @event.longitude
+      @markers = [
+        {
+          lat: @event.latitude,
+          lng: @event.longitude,
+          image_url: helpers.asset_url('party1.png')
+        }
+      ]
+    end
   end
 
-  def show
+  def search
+    date = l( Date.parse(params[:date]), format: :long ) rescue nil
+    @events = Event.global_search(params[:region])
+    if date
+      @events = @events.where("date ILIKE ?", "%#{date}%")
+    end
+  private
 
+  def current_event
+    @event = Event.find(params[:id])
   end
 end

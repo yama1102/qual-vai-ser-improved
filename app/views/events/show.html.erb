@@ -10,11 +10,18 @@
       <li class="list-group-item"><strong>Endereço: </strong><%= @event.address %></li>
       <li class="list-group-item"><strong>Região: </strong><%= @event.region %></li>
       <li class="list-group-item"><strong>Preço: A partir de <%= @event.price %></strong></li>
-      <li class="list-group-item"><strong>Avaliação: </strong></li>
+      <li class="list-group-item"><strong>Data: <%= @event.date %></strong></li>
       <li class="list-group-item"><strong>Descrição: </strong><%= @event.description %></li>
     </ul>
   </div>
 </div>
+
+<% if @markers %>
+  <div id="map"
+      style="width: 600px; height: 400px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<% end %>
 
 <div class="favoritar" style="text-align: center">
   <%= link_to 'favoritar evento', favorites_event_path(@event), method: :post, class: "btn btn-warning" %>

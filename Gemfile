@@ -38,6 +38,9 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
 # search
 gem 'pg_search', '~> 2.3.0'
+# para pt (internationalization)
+gem 'rails-i18n'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

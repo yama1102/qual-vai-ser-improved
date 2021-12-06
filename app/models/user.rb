@@ -14,7 +14,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
- pg_search_scope :search_by_email,
+ pg_search_scope :search_by_nickname,
   against: [:nickname],
   using: { tsearch: { prefix: true }}
 end
