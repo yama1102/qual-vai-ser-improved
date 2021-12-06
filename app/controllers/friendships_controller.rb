@@ -16,6 +16,6 @@ class FriendshipsController < ApplicationController
 
   def search
     @friendship = Friendship.new
-    @users = User.search_by_email(params[:email])
+    @users = User.search_by_nickname(params[:nickname])
   end
 end
