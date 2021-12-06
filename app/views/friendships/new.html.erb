@@ -1,11 +1,9 @@
-<h1 style="color:white">Encontre amigos</h1>
-
 <div class="busca" style= "margin:40px 450px 30px 450px;">
-  <%= form_with url: friendships_url, method: :get do %>
+  <%= form_with url: search_friendships_url, method: :get do %>
     <%= text_field_tag :email,
-        params[:emails],
+        params[:email],
         class: "form-control",
-        placeholder: "Dige um nome"
+        placeholder: "Digite um email"
     %>
     <div style="text-align: center; margin:20px ">
       <%= submit_tag 'Pesquisar', class: "btn btn-dark" %>
@@ -14,23 +12,19 @@
 </div>
 
 <div class="row justify-content-around m-0">
-  <% if !@users.empty? %>
-    <% @users.each do |user|%>
-      <div class="row card m-3 radius-10 col-3"  style=" width: 15rem;">
-          <div class="card-body" id="bg-card">
-            <%= simple_form_for @friendship do |f| %>
-              <div style="text-align: center;">
-                <%= user.email %>
-              </div>
-              <%= f.hidden_field :user_id, value: user.id%>
-              <div style="text-align: center;">
-                <%= f.submit "Adicionar"%>
-              </div>
-            <% end %>
+  <% @users.each do |user|%>
+    <div class="row card m-3 radius-10 col-3"  style=" width: 15rem;">
+      <div class="card-body" id="bg-card">
+        <%= simple_form_for @friendship do |f| %>
+          <div style="text-align: center;">
+            <%= user.email %>
           </div>
+          <%= f.hidden_field :user_id, value: user.id%>
+          <div style="text-align: center;">
+            <%= f.submit "Adicionar"%>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  <% else %>
-    <h2> Usuário não encontrado! <i class="far fa-frown"></i></h2>
+    </div>
   <% end %>
 </div>

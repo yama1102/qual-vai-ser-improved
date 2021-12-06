@@ -27,9 +27,9 @@
           </div>
           <div>
             <div class="row justify-content-around m-0">
-              <% @friendships.each do |friendship| %>
+              <% current_user.friends.each do |user|%>
               <div class="col-4">
-                  <h5 style="color: white"><%= friendship.friend_id %></h5>
+                  <h5 style="color: white"><%= user.email %></h5>
               </div>
               <% end %>
             </div>

@@ -13,7 +13,9 @@ class FriendshipsController < ApplicationController
     friendship.save
     redirect_to profiles_path
   end
-  #  def search
-  #   @users = User.search_by_email(params[:email])
-  # end
+
+  def search
+    @friendship = Friendship.new
+    @users = User.search_by_email(params[:email])
+  end
 end
