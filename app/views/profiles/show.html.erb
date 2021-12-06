@@ -7,13 +7,14 @@
           <h4>Eventos favoritados</h4>
         </div>
         <div class="card-product">
-          <% current_user.favorites.each do |favorite| %>
+          <% current_user.events.each do |event| %>
+          <%= cl_image_tag event.photo.key, size: '205x250' if event.photo.attached? %>
             <div class="card-product-infos">
-              <h5 style="color: black"><%= favorite.event.name %></h5>
+             <h2><%= event.name %></h2>
             </div>
+              <%= link_to '+info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
           <% end %>
         </div>
-
       </div>
 
       <div class="div"></div>
@@ -29,7 +30,8 @@
             <div class="row justify-content-around m-0">
               <% current_user.friends.each do |user|%>
               <div class="col-4">
-                  <h5 style="color: white"><%= user.email %></h5>
+                  <h5 style="color: white"><%= user.nickname %></h5>
+                  <h5><%= cl_image_tag user.photo.key, size: '205x250' if user.photo.attached? %></h5>
               </div>
               <% end %>
             </div>
@@ -47,5 +49,4 @@
       <div class="button-back">
         <%= link_to 'Voltar',events_path, class: "btn btn-outline-primary btn-sm radius-15" %>
       </div>
-       <%# <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %> %>
 </body>
