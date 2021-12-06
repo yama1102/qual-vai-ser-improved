@@ -5,9 +5,9 @@
 <div class="row justify-content-around m-0 text-white">
   <div>
     <div class="group-body">
-      <p><%= @group.user_id %></p>
+      <p><% @group.user_id %></p>
         <% @group.members.each do |member| %>
-      <p><%= member.user.id %></p>
+      <p><%= member.user.email %></p>
       <% end %>
     </div>
     <div class="row d-flex justify-content-center">
