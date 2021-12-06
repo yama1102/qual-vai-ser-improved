@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { initMapbox } from '../plugins/init_mapbox';
 
 Rails.start()
 Turbolinks.start()
@@ -20,6 +22,10 @@ $('.carousel').carousel({
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 
 // External imports
 import "bootstrap";
