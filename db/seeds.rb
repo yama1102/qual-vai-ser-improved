@@ -7,16 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 require "open-uri"
+require 'faker'
+# User.destroy_all
 
 file = URI.open ('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
 user1 = User.create!(email: 'maria@email.com', password: '123456')
 user1.photo.attached(io: file, filename: 'photo.png',content_type: 'image/png')
+user2 = User.create!(email: 'paulo@email.com', password: '123456')
+user2.photo.attached(io: file, filename: 'photo.png',content_type: 'image/png')
 
-require 'faker'
-# User.destroy_all
 10.times do
   User.create!(email: Faker::Internet.email, password: Faker::Internet.password)
 end
+
+group1 = Group.create!(user: user1, name: Faker::Team.name)
+Member.create!(user: user1, group: group1, adm: true)
+Member.create!(user: user2, group: group1)
 
 numbers = 0..3
 numbers.each do |i|
