@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   has_many :votes
   has_many :favorites, dependent: :destroy
+  has_many :messages
   has_one_attached :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -10,6 +10,22 @@
       <p><%= member.user.email %></p>
       <% end %>
     </div>
+    <h3>Chat</h3>
+    <%= simple_form_for [@group, @message], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message ##{@group.name}" %>
+    <% end %>
+    <div id="messages" data-chatroom-id="<%= @group.id %>">
+      <% @group.messages.each do |message| %>
+        <div class="message-container" id="message-<%= @group.id %>">
+          <i class="author">
+            <span><%= message.user.email %></span>
+            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </i>
+          <p><%= message.content %></p>
+        </div>
+      <% end %>
+    </div>
+
     <div class="row d-flex justify-content-center">
     <div>
       <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
