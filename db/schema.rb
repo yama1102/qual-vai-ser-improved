@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_142015) do
     t.string "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "favorites", force: :cascade do |t|
