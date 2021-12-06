@@ -23,7 +23,7 @@
     <div class="row d-flex justify-content-center">
     <div>
       <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
-      <%= link_to "vote", votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
+      <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
       <%= link_to "todos os grupos", groups_path(@group), class: "btn btn-primary btn-sm" %>
     </div>
   </div>
