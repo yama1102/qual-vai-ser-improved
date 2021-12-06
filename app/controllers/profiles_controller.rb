@@ -9,8 +9,4 @@ class ProfilesController < ApplicationController
     @friendships = Friendship.where({ user_id: current_user.id })
   end
 
-  # private
-  # def user_params
-  #   params.require(:user).permit(:photo)
-  # end
 end

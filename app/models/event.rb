@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_one_attached :photo
 
-  pg_search_scope :search_by_name_region_and_date,
-  against: [:region, :name, :date],
+  pg_search_scope :global_search,
+  against: [:region],
   using: { tsearch: { prefix: true }}
 end

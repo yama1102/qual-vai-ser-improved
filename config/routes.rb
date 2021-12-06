@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :events, only: %i[index show] do
+    collection do
+      get :search
+    end
     member do
       post 'favorites', to: "events#toggle_favorite"
     end

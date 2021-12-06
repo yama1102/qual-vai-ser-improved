@@ -3,7 +3,7 @@
     <div class="escopo col-md-10 col-sm-10 col-xs-12 form-inputs mb-2 radius-15">
       <div style="align-intens: center;">
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
