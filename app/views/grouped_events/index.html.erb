@@ -5,25 +5,22 @@
 <div class="text-light" style="text-align:center;">
   <h5>Adicione seu evento preferido a enquete</h5>
 </div>
-<div class="container my-4">
-    <div class="row">
-      <form>
-        <div class="form-row mt-3">
-          <div class="col-5">
-            <input type="text" class="form-control border-0" placeholder="Localização">
-          </div>
-          <div class="col-5">
-            <input type="text" class="form-control border-0" placeholder="Data">
-          </div>
-          <div class="col-2">
-            <a class="btn btn-ghost" href="#"><i class="fas fa-search icon-search"></i></a>
-          </div>
-        </div>
-      </form>
+<div class="row justify-content-center" >
+  <%= form_with url: search_events_url, method: :get do %>
+    <%= text_field_tag :region,
+        params[:region],
+        placeholder: "Região"
+    %>
+    <%= text_field_tag :date,
+        params[:date],
+        placeholder: "Data",
+        class: "datepicker"
+    %>
+    <div style="text-align: center; margin:20px ">
+      <%= submit_tag 'Pesquisar', class: "btn btn-dark" %>
     </div>
-  </div>
-
-
+  <% end %>
+</div>
 
 <% @grouped_events.each do |grouped_event| %>
 
