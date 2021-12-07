@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   end
   resources :groups, only: %i[index show new create destroy] do
+    collection do
+      patch ':id/close', to: "groups#close", as: "close_group"
+    end
     resources :grouped_events, only: %i[index new create destroy] do
       collection do
         get 'votes'

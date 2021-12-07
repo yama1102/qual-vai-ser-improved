@@ -33,6 +33,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def close
+    group = Group.find(params[:id])
+    group.close = true
+    group.save
+    redirect_to result_group_grouped_events_path(group)
+  end
+
   private
 
   def group_params
