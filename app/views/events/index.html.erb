@@ -1,20 +1,19 @@
 <div class="events-banner-bg m-0" >
-<div class="container my-4">
-  <div class="busca" style= "margin:40px 450px 30px 450px;">
-    <%= form_with url: search_events_url, method: :get do %>
-      <%= text_field_tag :region,
-          params[:region],
-          placeholder: "Digite um nome"
-      %>
-      <%= text_field_tag :date,
-          params[:date],
-          placeholder: "Digite uma data"
-      %>
-      <div style="text-align: center; margin:20px ">
-        <%= submit_tag 'Pesquisar', class: "btn btn-dark" %>
-      </div>
-    <% end %>
-  </div>
+<div class="row justify-content-center" >
+  <%= form_with url: search_events_url, method: :get do %>
+    <%= text_field_tag :region,
+        params[:region],
+        placeholder: "Região"
+    %>
+    <%= text_field_tag :date,
+        params[:date],
+        placeholder: "Data",
+        class: "datepicker"
+    %>
+    <div style="text-align: center; margin:20px ">
+      <%= submit_tag 'Pesquisar', class: "btn btn-dark" %>
+    </div>
+  <% end %>
 </div>
 
 
