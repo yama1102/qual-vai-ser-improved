@@ -32,9 +32,10 @@ class EventsController < ApplicationController
   def search
     date = l( Date.parse(params[:date]), format: :long ) rescue nil
     @events = Event.global_search(params[:region])
-    if date
-      @events = @events.where("date ILIKE ?", "%#{date}%")
+    @events = @events.where("date ILIKE ?", "%#{date}%") if date
     end
+  end
+
   private
 
   def current_event
