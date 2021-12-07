@@ -35,6 +35,8 @@ class EventsController < ApplicationController
     if date
       @events = @events.where("date ILIKE ?", "%#{date}%")
     end
+  end
+
   private
 
   def current_event

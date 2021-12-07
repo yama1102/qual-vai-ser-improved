@@ -34,11 +34,12 @@
           </div>
           <div class="event-text">
             <h6><strong><%= event.name %></strong></h5>
-            <p style="color:red;">A partir de <%= event.price %></p>
+            <p style="color:red;"></strong>A partir de <%= event.price %></strong></p>
             <p><%= event.region %></p>
             <p><%= event.address %></p>
+            <p><%= event.date.split(",")[0] %></p>
           </div>
-          <div class="event-body">
+          <div class="button-index">
             <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
           </div>
         </div>
