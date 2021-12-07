@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     member do
       post 'favorites', to: "events#toggle_favorite"
     end
-
   end
-  resources :groups, only: %i[index show new create destroy] do
+
+  resources :groups, only: %i[index show new create destroy], shallow: true do
     collection do
       patch ':id/close', to: "groups#close", as: "close_group"
     end
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       end
     end
     resources :messages, only: :create
+    resources :members, only: %i[create destroy]
   end
 
   resource :profiles, only: %i[show]

@@ -7,7 +7,7 @@
     <div class="group-body">
       <p><% @group.user_id %></p>
         <% @group.members.each do |member| %>
-      <p><%= member.user.email %></p>
+      <p><%= member.user.email %><%= link_to "delete", member_path, method: :delete, remote: true %></p>
       <% end %>
     </div>
     <h3>Chat</h3>
@@ -17,6 +17,18 @@
     <div id="messages" data-group-id="<%= @group.id %>">
       <% @group.messages.each do |message| %>
         <%= render "message", group: @group, message: message %>
+      <% end %>
+    </div>
+    <div>
+      <%= simple_form_for [@group, @member], remote: true do |f| %>
+      <%= f.association :user,
+        collection: User.where.not(id: current_user),
+        label_method: :email,
+        value_method: :id,
+        label: false,
+        multiple: true,
+        prompt: "Adicione seu amigo" %>
+      <%= f.submit "Adicione seu amigo" %>
       <% end %>
     </div>
 
