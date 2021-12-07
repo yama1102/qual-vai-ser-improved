@@ -4,23 +4,38 @@
 
 <div class="row justify-content-around m-0 text-white">
   <div>
-    <div class="group-body">
-      <p><% @group.user_id %></p>
-        <% @group.members.each do |member| %>
-      <p><%= member.user.email %></p>
-      <% end %>
-    </div>
-    <h3>Chat</h3>
-    <%= simple_form_for [@group, @message], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@group.name}" %>
-    <% end %>
-    <div id="messages" data-group-id="<%= @group.id %>">
-      <% @group.messages.each do |message| %>
-        <%= render "message", group: @group, message: message %>
-      <% end %>
+    <div class="d-flex justify-content-around ">
+      <div>
+        <h3 class="text-center">Chat</h3>
+        <div id="chat" class="d-flex flex-column group-card justify-content-between p-3 mx-2">
+          <div id="messages" data-group-id="<%= @group.id %>">
+            <% @group.messages.each do |message| %>
+              <%= render "message", group: @group, message: message %>
+            <% end %>
+          </div>
+          <div class="align-self-end w-100">
+            <%= simple_form_for [@group, @message], remote: true do |f| %>
+              <%= f.input :content, label: false, placeholder: "Mensagem ##{@group.name}" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="group-container border border-white mx-2">
+        <h3 class="text-center">Membros</h3>
+        <div style="height: 230px;" class="group-card p-3 mb-3">
+          <p><% @group.user_id %></p>
+            <% @group.members.each do |member| %>
+          <p><%= member.user.email %></p>
+          <% end %>
+        </div>
+        <h3 class="text-center">Eventos Selecionados</h3>
+        <div style="height: 265px;" class="group-card p-3">
+        <p>Event Lists</p>
+        </div>
+      </div>
     </div>
 
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mt-5">
     <div>
       <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
       <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
