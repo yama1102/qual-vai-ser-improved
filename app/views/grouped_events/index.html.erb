@@ -24,15 +24,18 @@
 
 <% @grouped_events.each do |grouped_event| %>
 
-  <div class="event-body text-light">
-    <img src="<%= grouped_event.event.image %>">
-    <h5><%= grouped_event.event.name %></h5>
-    <p><%= grouped_event.event.price %></p>
-    <p><%= grouped_event.event.region %></p>
-    <p><%= grouped_event.event.description %></p>
-  </div>
-<% end %>
+<div class="card-product m-5 w-50">
+    <%= cl_image_tag grouped_event.event.photo.key, height: 134, width: 262, crop: :fill %>
+    <div class="card-product-infos mt-3 mb-3">
+      <%= link_to(event_path(grouped_event.event)) do %>
+        <h2><%= grouped_event.event.name %></h2>
+      <% end %>
+      <p>Preço: <%= grouped_event.event.price %></p>
+      <p>Região: <%= grouped_event.event.region %></p>
+    </div>
+</div>
 
+<% end %>
 
 
 <div class="row justify-content-around m-0 text-white">

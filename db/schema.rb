@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_201952) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "close", default: false
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 

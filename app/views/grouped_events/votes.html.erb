@@ -11,7 +11,9 @@
 <div class="card-product m-5 w-50">
     <%= cl_image_tag grouped_event.event.photo.key, height: 134, width: 262, crop: :fill %>
     <div class="card-product-infos mt-3 mb-3">
-      <h2><%= grouped_event.event.name %></h2>
+      <%= link_to(event_path(grouped_event.event)) do %>
+        <h2><%= grouped_event.event.name %></h2>
+      <% end %>
       <p><strong>Votação: <%= grouped_event.points %></strong></p>
       <p>Preço: <%= grouped_event.event.price %></p>
       <p>Região: <%= grouped_event.event.region %></p>
@@ -23,9 +25,9 @@
 <div class="row justify-content-around m-0 text-white">
   <div>
     <%= link_to "Cancelar sua votação", votes_group_grouped_events_path(@group), method: :delete, class: "btn btn-warning btn-sm" %>
-
-    <%= link_to "Finalizar votação", result_group_grouped_events_path(@group), class: "btn btn-danger btn-sm" %>
-
+    <% if @member[0].adm %></p>
+      <%= link_to "Finalizar votação", close_group_groups_path(@group), method: :patch, class: "btn btn-danger btn-sm" %>
+    <% end %>
     <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-primary btn-sm" %>
   </div>
 </div>
