@@ -7,8 +7,27 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @message = Message.new
     @member = Member.new
+    @friends = get_user_friends
   end
 
+  # def get_user_friends
+  #   friends = Set.new
+  #   Friendship.where("user_id = ? OR friend_id = ?", current_user.id, current_user.id).each do |friendship|
+  #     friends << friendship.user unless friendship.user == current_user
+  #     friends << friendship.friend unless friendship.friend == current_user
+  #   end
+  #   friends
+  # end
+
+  def get_user_friends
+    friends = Set.new
+    Friendship.where("user_id = ? OR friend_id = ?", current_user.id, current_user.id).each do |friendship|
+      friends << friendship.user unless friendship.user == current_user
+      friends << friendship.friend unless friendship.friend == current_user
+    end
+    friends
+  end
+  
   def new
     @group = Group.new
     @users = User.all
