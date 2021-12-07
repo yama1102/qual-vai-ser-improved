@@ -14,7 +14,7 @@ file = URI.open('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ix
 user1 = User.create!(email: 'maria@email.com', password: '123456')
 user1.photo.attached(io: file, filename: 'photo.png',content_type: 'image/png')
 user2 = User.create!(email: 'paulo@email.com', password: '123456')
-user2.photo.attached(io: file, filename: 'photo.png',content_type: 'image/png')
+user2.photo.attached(io: file, filename: 'photo.png', content_type: 'image/png')
 
 10.times do
   User.create!(email: Faker::Internet.email, password: Faker::Internet.password)

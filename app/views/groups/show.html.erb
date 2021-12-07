@@ -20,12 +20,16 @@
           </div>
         </div>
       </div>
-      <div class="group-container border border-white mx-2">
+      <div class="group-container mx-2">
         <h3 class="text-center">Membros</h3>
-        <div style="height: 230px;" class="group-card p-3 mb-3">
-          <p><% @group.user_id %></p>
+        <div style="height: 230px;" class="d-flex group-card p-3 mb-3">
             <% @group.members.each do |member| %>
-          <p><%= member.user.email %></p>
+            <div class="mx-3">
+              <% if member.user.photo.attached? %>
+                <%= cl_image_tag member.user.photo.key, class: "avatar"%>
+              <% end %>
+              <p style="font-size:12px;" class="text-center"><%= member.user.nickname %></p>
+            </div>
           <% end %>
         </div>
         <h3 class="text-center">Eventos Selecionados</h3>
