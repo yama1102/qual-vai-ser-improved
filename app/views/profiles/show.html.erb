@@ -29,9 +29,9 @@
           <div>
             <div class="row justify-content-around m-0">
               <% current_user.friends.each do |user|%>
-              <div class="col-4">
+              <div class="col-4 friends-photo">
                   <h5 style="color: white"><%= user.nickname %></h5>
-                  <h5><%= cl_image_tag user.photo.key, size: '205x250' if user.photo.attached? %></h5>
+                  <h5><%= cl_image_tag user.photo.key, size: '50x50', style:"border-radius:50%;" if user.photo.attached? %></h5>
               </div>
               <% end %>
             </div>
