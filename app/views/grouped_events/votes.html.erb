@@ -23,9 +23,9 @@
 <div class="row justify-content-around m-0 text-white">
   <div>
     <%= link_to "Cancelar sua votação", votes_group_grouped_events_path(@group), method: :delete, class: "btn btn-warning btn-sm" %>
-
-    <%= link_to "Finalizar votação", close_group_groups_path(@group), method: :patch, class: "btn btn-danger btn-sm" %>
-
+    <% if @member[0].adm %></p>
+      <%= link_to "Finalizar votação", close_group_groups_path(@group), method: :patch, class: "btn btn-danger btn-sm" %>
+    <% end %>
     <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-primary btn-sm" %>
   </div>
 </div>

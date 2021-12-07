@@ -3,7 +3,9 @@ class GroupedEventsController < ApplicationController
 
   def index; end
 
-  def votes; end
+  def votes
+    @member = Member.where(user: current_user)
+  end
 
   def add_vote
     vote_exist = Vote.where(group: params[:group_id], user: current_user)
