@@ -33,7 +33,6 @@ class EventsController < ApplicationController
     date = l( Date.parse(params[:date]), format: :long ) rescue nil
     @events = Event.global_search(params[:region])
     @events = @events.where("date ILIKE ?", "%#{date}%") if date
-    end
   end
 
   private
