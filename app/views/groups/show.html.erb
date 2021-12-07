@@ -5,21 +5,6 @@
 <div class="row justify-content-around m-0 text-white">
   <div>
     <div class="d-flex justify-content-around ">
-      <div>
-        <h3 class="text-center">Chat</h3>
-        <div id="chat" class="d-flex flex-column group-card justify-content-between p-3 mx-2">
-          <div id="messages" data-group-id="<%= @group.id %>">
-            <% @group.messages.each do |message| %>
-              <%= render "message", group: @group, message: message %>
-            <% end %>
-          </div>
-          <div class="align-self-end w-100">
-            <%= simple_form_for [@group, @message], remote: true do |f| %>
-              <%= f.input :content, label: false, placeholder: "Mensagem ##{@group.name}" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
       <div class="group-container mx-2">
         <h3 class="text-center">Membros</h3>
         <div style="height: 150px;" class="d-flex group-card p-3 mb-3">
@@ -50,6 +35,21 @@
               </div>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-center">Chat</h3>
+        <div id="chat" class="d-flex flex-column group-card justify-content-between p-3 mx-2">
+          <div id="messages" data-group-id="<%= @group.id %>">
+            <% @group.messages.each do |message| %>
+              <%= render "message", group: @group, message: message %>
+            <% end %>
+          </div>
+          <div class="align-self-center w-75">
+            <%= simple_form_for [@group, @message], remote: true do |f| %>
+              <%= f.input :content, label: false, placeholder: "Mensagem ##{@group.name}"%>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
