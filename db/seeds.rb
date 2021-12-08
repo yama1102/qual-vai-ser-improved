@@ -9,13 +9,6 @@ User.destroy_all
 
 puts "Criando Usuario"
 
-file = URI.open('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
-user1 = User.create!(email: 'maria@email.com', password: '123456')
-user1.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
-user2 = User.create!(email: 'paulo@email.com', password: '123456')
-file = URI.open('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
-user2.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
-
 file_member1 = URI.open('https://res.cloudinary.com/jump-29/image/upload/v1638883289/Lia_oy1oy6.jpg')
 member1 = User.create!(
   email: 'bia_bi@qualvaiser.com',
@@ -95,6 +88,22 @@ member10 = User.create!(
   password: '123456'
 )
 member10.photo.attach(io: file_member10, filename: 'photo.png', content_type: 'image/png')
+
+file_member11 = URI.open('https://res.cloudinary.com/jump-29/image/upload/v1638966749/Captura_de_Tela_%C3%81rea_de_Sele%C3%A7%C3%A3o_20211208093119_dbphaz.jpg')
+member11 = User.create!(
+  email: 'paulo@qualvaiser.com',
+  nickname: "Paulo",
+  password: '123456'
+)
+member11.photo.attach(io: file_member11, filename: 'photo.png', content_type: 'image/png')
+
+file_member12 = URI.open('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+member12 = User.create!(
+  email: 'maria@qualvaiser.com',
+  nickname: "Maria",
+  password: '123456'
+)
+member12.photo.attach(io: file_member12, filename: 'photo.png', content_type: 'image/png')
 
 puts "Criando grupos"
 
