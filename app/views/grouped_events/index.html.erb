@@ -15,6 +15,7 @@
       <% end %>
       <p>Preço: <%= grouped_event.event.price %></p>
       <p>Região: <%= grouped_event.event.region %></p>
+      <%= link_to 'Remover', grouped_event_path(@group, grouped_event_id: grouped_event.id), method: :delete, class: "btn btn-outline-dark btn-sm" %>
     </div>
 </div>
 
