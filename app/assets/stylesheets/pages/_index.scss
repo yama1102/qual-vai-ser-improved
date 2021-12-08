@@ -10,6 +10,8 @@ body {
   background-size: cover;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  margin: 0;
 }
 @media (max-width: 960px) {
   /* For a screen < 960px, this CSS will be read */

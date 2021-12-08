@@ -1,26 +1,22 @@
-.box{
- width: 450px;
-  height: 300px;
-}
+
+// .box{
+//  width: 450px;
+//   height: 100%;
+// }
 
 #one {
-  position: absolute;
   top: 250px;
   left: 100px;
-  height: 200px;
 }
 #two {
-  position: fixed;
   top: 250px;
   right: 100px;
-  height: 200px;
-
 }
 .div{
-  position: fixed;
+
   border-left: 3px solid rgb(136, 134, 134);
   height:420px;
-  left: 50%;
+  left: 40%;
   margin-left: -2px;
   top: 200px;
 }
@@ -60,7 +56,6 @@
 
 // botões ---------
 .wrap-button{
-  position: fixed;
   right: 110px;
   top: 550px;
   justify-content: space-evenly;
