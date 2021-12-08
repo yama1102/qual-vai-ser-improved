@@ -10,6 +10,34 @@
   height: 75px;
 }
 
+.backland {
+  position: relative;
+}
+
+.carousel-inner {
+  width: 1150px;
+  height: 500px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.botton {
+  position: absolute;
+  left: 43%;
+  bottom: 400px;
+  z-index: 999;
+
+  .nav-link {
+  color: rgb(5, 5, 5);
+  border: 2px solid #cbb2fe;
+  background-color: #cbb2fe;
+  padding: 8px 24px;
+  border-radius: 40px;
+  font-weight: lighter;
+  z-index: 999;
+}
+}
+
 .btn-ghost {
   color:  rgb(120, 21, 233);
   border: 1px solid #4A4A4A;

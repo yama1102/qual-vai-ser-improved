@@ -16,8 +16,8 @@
     <div class="row card m-3 radius-10 col-3"  style=" width: 15rem;">
       <div class="card-body" id="bg-card">
         <%= simple_form_for @friendship do |f| %>
-          <div  style="text-align: center;">
-            <h5><%= cl_image_tag user.photo.key, class:"avatar-large" if user.photo.attached? %></h5>
+          <div style="text-align: center;"> <h5>
+            <%= cl_image_tag user.photo.key, size: '205x250' if user.photo.attached? %></h5>
           </div>
           <div style="text-align: center;">
             <%= user.nickname %>
