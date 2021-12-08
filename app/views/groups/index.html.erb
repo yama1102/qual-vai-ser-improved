@@ -1,17 +1,15 @@
 
 <div style="text-align:center;">
-  <%= link_to 'Crie um grupo',new_group_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to 'Crie um grupo',new_group_path, class: "btn botton-search" %>
 </div>
-<div class="row justify-content-around m-0">
+<div class="container-group">
   <% @groups.each do |group|%>
-    <div>
-      <ul class="list-group">
-      <li class="list-group-item"><strong>Nome: </strong><%= group.name %></li>
-      <li class="list-group-item"><strong>Administrador: </strong><%= group.user.id %></li>
-
-
-      <%= link_to '+ info',group_path(group), class: "btn btn-outline-warning" %>
-
-    </div>
+    <div class="box-group">
+      <h5><strong>Nome: </strong><%= group.name %></h5>
+      <p>Administrador: <%= group.user.id %></p>
+      <div class="justify-content-center">
+        <%= link_to '+ info',group_path(group), class: "btn botton-info" %>
+      </div>
+  </div>
   <% end %>
 </div>
