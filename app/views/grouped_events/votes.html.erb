@@ -28,15 +28,12 @@
     <% end %>
   </div>
 </div>
-
-
-
 <div class="row justify-content-around mt-3 text-white">
   <div>
-    <%= link_to "Cancelar sua votação", votes_group_grouped_events_path(@group), method: :delete, class: "btn btn-warning btn-sm" %>
+    <%= link_to "Cancelar sua votação", votes_group_grouped_events_path(@group), method: :delete, class: "btn botton-vote" %>
     <% if @member[0].adm %></p>
-      <%= link_to "Finalizar votação", close_group_groups_path(@group), method: :patch, class: "btn btn-danger btn-sm" %>
+      <%= link_to "Finalizar votação", close_group_groups_path(@group), method: :patch, class: "btn botton-enquete" %>
     <% end %>
-    <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Voltar para Grupo", group_path(@group), class: "btn botton-back" %>
   </div>
 </div>

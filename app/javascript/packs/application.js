@@ -10,6 +10,7 @@ import "channels"
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initGroupCable } from "channels/group_channel";
+import { btnEvents } from '../plugins/botton_favorite';
 
 Rails.start()
 Turbolinks.start()
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initGroupCable();
   initFlatpickr();
+  btnEvents();
 });

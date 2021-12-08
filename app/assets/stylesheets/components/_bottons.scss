@@ -1,0 +1,64 @@
+.box-bottons {
+  margin-bottom: 15px;
+}
+
+.btn {
+  color: rgb(5, 5, 5);
+  padding: 5px 24px;
+  border-radius: 30px;
+  font-weight: lighter;
+    &:hover {
+      text-decoration: none;
+      color:rgb(5, 5, 5);
+    }
+}
+
+.botton-back {
+  border: 2px solid #c77dff;
+  background-color: #c77dff;
+}
+
+.botton-vote {
+  border: 2px solid #9d4edd;
+  background-color: #9d4edd;
+}
+
+.botton-enquete {
+  border: 2px solid #7b2cbf;
+  background-color: #7b2cbf;
+}
+
+.botton-favorite {
+  border: 2px solid #9d4edd;
+  background-color: #9d4edd;
+}
+
+.botton-topfavorite {
+  border: 2px solid #9d4edd;
+  background-color: #9d4edd;
+}
+
+.botton-search {
+  border: 2px solid #c77dff;
+  background-color: #c77dff;
+}
+
+.botton-info {
+  border: 2px solid #c77dff;
+  background-color: #c77dff;
+  width: 100px;
+  height: 35px;
+}
+
+.botton-warning {
+  border: 2px solid #ff9e00;
+  background-color: #ff9e00;
+  color: rgb(5, 5, 5);
+  padding: 5px 24px;
+  border-radius: 30px;
+  font-weight: lighter;
+    &:hover {
+      text-decoration: none;
+      color:rgb(5, 5, 5);
+    }
+}

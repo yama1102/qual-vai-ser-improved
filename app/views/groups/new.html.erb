@@ -3,9 +3,9 @@
 <div class="container">
   <%= simple_form_for @group do |f| %>
     <%= f.input :name %>
-    <%= f.button :submit %>
+    <%= f.button :submit, value: "Crie seu grupo", class:"btn botton-vote" %>
   <% end %>
 </div>
 <div style="text-align: center; margin-top:300px;">
-    <%= link_to 'voltar', groups_path, class: "btn btn-primary btn-sm " %>
+    <%= link_to 'voltar', groups_path, class: "btn botton-back" %>
 </div>
