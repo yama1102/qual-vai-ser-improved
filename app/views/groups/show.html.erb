@@ -53,6 +53,18 @@
         </div>
       </div>
     </div>
+    <div>
+      <%= simple_form_for [@group, @member], remote: true do |f| %>
+      <%= f.association :user,
+        collection: User.where.not(id: current_user),
+        label_method: :email,
+        value_method: :id,
+        label: false,
+        multiple: true,
+        prompt: "Adicione seu amigo" %>
+      <%= f.submit "Adicione seu amigo" %>
+      <% end %>
+    </div>
     <div class="row d-flex justify-content-center mt-5">
     <div>
       <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
