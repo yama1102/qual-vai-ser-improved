@@ -2,27 +2,36 @@
   <h1>Votação</h1>
 </div>
 
-<div class="text-light">
-  <h2>Eventos para votação</h2>
+<div class="d-flex justify-content-center">
+  <div class="group-chat-container d-flex flex-column justify-content-center">
+    <h2 class="text-white">Eventos para votos</h2>
+    <% @grouped_events.each do |grouped_event| %>
+      <div style="width: 1000px;" class="group-card mt-3 d-flex">
+          <%= cl_image_tag grouped_event.event.photo.key, height: 175, width: 350, class: "image-vote m-4"%>
+          <div class="my-4">
+            <%= link_to(event_path(grouped_event.event)) do %>
+              <h4><%= grouped_event.event.name %></h4>
+            <% end %>
+            <p>Preço: <%= grouped_event.event.price %></p>
+            <p>Região: <%= grouped_event.event.region %></p>
+            <div class="d-flex align-items-center mt-0 ml-2">
+              <%= link_to "Vote", votes_group_grouped_events_path(grouped_event_id: grouped_event.id), method: :post, class: "btn btn-primary mr-2"%>
+              <% grouped_event.points.times do %>
+                <div class="votes-big"></div>
+              <% end %>
+              <div style="font-size: 22px;" class="ml-1">
+                <%=  grouped_event.points %>
+              </div>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<% @grouped_events.each do |grouped_event| %>
 
-<div class="card-product m-5 w-50">
-    <%= cl_image_tag grouped_event.event.photo.key, height: 134, width: 262, crop: :fill %>
-    <div class="card-product-infos mt-3 mb-3">
-      <%= link_to(event_path(grouped_event.event)) do %>
-        <h2><%= grouped_event.event.name %></h2>
-      <% end %>
-      <p><strong>Votação: <%= grouped_event.points %></strong></p>
-      <p>Preço: <%= grouped_event.event.price %></p>
-      <p>Região: <%= grouped_event.event.region %></p>
-      <%= link_to "Vote", votes_group_grouped_events_path(grouped_event_id: grouped_event.id), method: :post, class: "btn btn-primary"%>
-    </div>
-</div>
 
-<% end %>
-<div class="row justify-content-around m-0 text-white">
+<div class="row justify-content-around mt-3 text-white">
   <div>
     <%= link_to "Cancelar sua votação", votes_group_grouped_events_path(@group), method: :delete, class: "btn btn-warning btn-sm" %>
     <% if @member[0].adm %></p>
