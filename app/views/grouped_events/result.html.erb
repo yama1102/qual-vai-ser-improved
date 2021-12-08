@@ -2,24 +2,32 @@
   <h1>Resultado</h1>
 </div>
 
-<div class="text-light">
-  <h2>O queridinho da fez foi....</h2>
-</div>
-<div class="d-flex justify-content-center">
-  <div class="card-trip m-5 w-50">
-    <%= cl_image_tag @grouped_events[0].event.photo.key, height: 134, width: 262, crop: :fill %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= @grouped_events[0].event.name %></h2>
-         <%= link_to "+info", event_path(@grouped_events[0].event), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+<div class="d-flex flex-column">
+  <div class="d-flex justify-content-center">
+    <div class="group-chat-container d-flex flex-column">
+      <div class="d-flex justify-content-center">
+        <i style="font-size:25px; color: yellow;" class="fas fa-crown"></i>
+        <h2 class="my-4">O queridinho da vez foi....</h2>
+        <i style="font-size:25px; color: yellow;" class="fas fa-crown"></i>
       </div>
-      <h2 class="card-trip-pricing">R$ <%= @grouped_events[0].event.price %></h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <div class="d-flex justify-content-center">
+        <div style="width:600;" class="group-card mx-3 mb-3">
+          <%= cl_image_tag @grouped_events[0].event.photo.key, height: 400, width: 824, class: "image-result mt-3 mx-3" %>
+          <div class="card-trip-infos text-center">
+            <div class="mt-2">
+              <%= link_to(event_path(@grouped_events[0].event)) do %>
+              <h3 class="text-white"><%= @grouped_events[0].event.name %></h3>
+              <% end %>
+            </div>
+            <p>Região: <%= @grouped_events[0].event.region %></p>
+            <p class="card-trip-pricing"><%= @grouped_events[0].event.price %></p>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div>
+  <div class="d-flex justify-content-center">
     <%= link_to "Voltar para Grupo", group_path(@grouped_events[0].group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
   </div>
-
 </div>
