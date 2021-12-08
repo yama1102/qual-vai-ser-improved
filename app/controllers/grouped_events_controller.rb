@@ -22,7 +22,7 @@ class GroupedEventsController < ApplicationController
     group = Group.find(params[:id])
     grouped_event = GroupedEvent.find(params[:grouped_event_id])
     grouped_event.destroy
-    redirect_to group_grouped_events_path(group), notice: "Evento retirado"
+    redirect_to group_grouped_events_path(group), notice: "Evento removido"
   end
 
   def votes
