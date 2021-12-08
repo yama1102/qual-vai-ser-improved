@@ -4,6 +4,18 @@
 
 <div class="row justify-content-around m-0 text-white">
   <div>
+    <div class="group-body">
+      <p><% @group.user_id %></p>
+      <% @group.members.each do |member| %>
+         <p>
+            <%= member.user.email %>
+            <%= link_to "delete",
+                member_path, method: :delete,
+                remote: true unless member.user == current_user
+            %>
+         </p>
+      <% end %>
+    </div>
     <div class="group-chat-container d-flex justify-content-around">
       <div class="group-container mx-2">
         <h3 class="text-center">Membros</h3>
@@ -53,16 +65,17 @@
         </div>
       </div>
     </div>
+
     <div>
       <%= simple_form_for [@group, @member], remote: true do |f| %>
-      <%= f.association :user,
-        collection: User.where.not(id: current_user),
-        label_method: :email,
-        value_method: :id,
-        label: false,
-        multiple: true,
-        prompt: "Adicione seu amigo" %>
-      <%= f.submit "Adicione seu amigo" %>
+        <%= f.association :user,
+          collection: @friends,
+          label_method: :email,
+          value_method: :id,
+          label: false,
+          multiple: true,
+          prompt: "Adicione seu amigo" %>
+        <%= f.submit "Adicione seu amigo" %>
       <% end %>
     </div>
     <div class="row d-flex justify-content-center mt-5">
@@ -71,5 +84,4 @@
       <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
       <%= link_to "todos os grupos", groups_path(@group), class: "btn btn-primary btn-sm" %>
     </div>
-  </div>
 </div>
