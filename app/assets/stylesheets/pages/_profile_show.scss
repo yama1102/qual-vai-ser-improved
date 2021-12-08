@@ -8,9 +8,12 @@
   top: 250px;
   left: 100px;
   padding-top: 60px;
-  width:500px
+  width:500px;
+  margin-bottom: 100px;
+  position: sticky;
 }
 #two {
+
   top: 250px;
   right: 100px;
   padding-top: 60px;
@@ -19,6 +22,7 @@
   max-width:450px;
 }
 .div {
+  position: sticky;
   border-left: 3px solid rgb(136, 134, 134);
   height:450px;
   left: 40%;
