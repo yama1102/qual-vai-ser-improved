@@ -4,20 +4,54 @@
 
 <div class="row justify-content-around m-0 text-white">
   <div>
-    <div class="group-body">
-      <p><% @group.user_id %></p>
-        <% @group.members.each do |member| %>
-      <p><%= member.user.email %><%= link_to "delete", member_path, method: :delete, remote: true %></p>
-      <% end %>
-    </div>
-    <h3>Chat</h3>
-    <%= simple_form_for [@group, @message], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@group.name}" %>
-    <% end %>
-    <div id="messages" data-group-id="<%= @group.id %>">
-      <% @group.messages.each do |message| %>
-        <%= render "message", group: @group, message: message %>
-      <% end %>
+    <div class="group-chat-container d-flex justify-content-around">
+      <div class="group-container mx-2">
+        <h3 class="text-center">Membros</h3>
+        <div style="height: 150px;" class="d-flex group-card p-3 mb-3">
+            <% @group.members.each do |member| %>
+            <div class="mx-3">
+              <% if member.user.photo.attached? %>
+                <%= cl_image_tag member.user.photo.key, class: "avatar"%>
+              <% end %>
+              <p style="font-size:12px;" class="text-center"><%= member.user.nickname %></p>
+            </div>
+          <% end %>
+        </div>
+        <h3 class="text-center">Eventos Selecionados</h3>
+        <div style="height: 345px;" class="group-card p-3">
+          <% @group.groupedEvents.each do |groupedEvent| %>
+            <div class="d-flex align-items-center mb-2">
+              <%= cl_image_tag groupedEvent.event.photo.key, height: 40, width: 80, crop: :fill %>
+              <div class="d-flex flex-column">
+                <p class="ml-2 mb-0"><%= groupedEvent.event.name %></p>
+                <div class="d-flex align-items-center mt-0 ml-2">
+                  <% groupedEvent.points.times do %>
+                    <div class="votes"></div>
+                  <% end %>
+                  <div class="ml-1">
+                    <%=  groupedEvent.points %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-center">Chat</h3>
+        <div id="chat" class="d-flex flex-column group-card justify-content-between p-3 mx-2">
+          <div id="messages" data-group-id="<%= @group.id %>">
+            <% @group.messages.each do |message| %>
+              <%= render "message", group: @group, message: message %>
+            <% end %>
+          </div>
+          <div class="align-self-center w-75">
+            <%= simple_form_for [@group, @message], remote: true do |f| %>
+              <%= f.input :content, label: false, placeholder: "Mensagem ##{@group.name}"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
     <div>
       <%= simple_form_for [@group, @member], remote: true do |f| %>
@@ -31,8 +65,7 @@
       <%= f.submit "Adicione seu amigo" %>
       <% end %>
     </div>
-
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mt-5">
     <div>
       <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
       <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>

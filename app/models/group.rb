@@ -1,7 +1,7 @@
 class Group < ApplicationRecord
   belongs_to :user
   has_many :members
-  has_one :groupedEvent, dependent: :destroy
+  has_many :groupedEvents, dependent: :destroy # changed from has_one, from groupedEvent to groupedEvents
   has_many :votes
   has_many :messages
 

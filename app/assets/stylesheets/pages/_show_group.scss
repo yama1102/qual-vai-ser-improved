@@ -1,0 +1,51 @@
+.group-chat-container {
+  width:1100px;
+  height: 650px;
+  background-color: rgba(19, 21, 24, 0.9);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.group-container {
+  width: 500px;
+}
+
+.group-card {
+  background-color: rgba(35, 37, 42, 0.9);
+  border-radius: 20px;
+}
+
+.comment-container {
+  width: 200px;
+  font-size: 10px;
+}
+
+.comment-container .avater {
+  height: 20px;
+  width: 20px;
+}
+
+.comment {
+  display: inline-block;
+  margin-right: auto;
+  background-color: #757BC8;
+  border-radius: 7px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+.chat-date {
+  font-size: 8px;
+}
+
+.votes {
+  background-color: #757BC8;
+  width: 10px;
+  height: 20px;
+  margin: 0 1px;
+}
+
+#chat {
+  height: 555px;
+  width: 500px;
+}
