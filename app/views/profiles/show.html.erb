@@ -1,7 +1,7 @@
 
 <body>
 
-  <h2 class="text-center mb-40px" style="color: white">Bem-vindo, <%= current_user.nickname %></h2>
+  <h2 style="color: white; text-align: center; ">Bem-vindo, <%= current_user.nickname %></h2>
 
     <div class="row justify-content-around m-0">
       <div class="box" id="one">
@@ -29,7 +29,7 @@
           <div>
             <div class="row justify-content-around m-0">
               <% current_user.friends.each do |user|%>
-              <div class="col-4 friends-photo">
+              <div class="col-3 friends-photo">
                   <div class="text-center"><%= cl_image_tag user.photo.key, class:"avatar-large" if user.photo.attached? %></div>
                   <h6 class="text-center"style="color: white"><%= user.nickname %></h6>
               </div>
