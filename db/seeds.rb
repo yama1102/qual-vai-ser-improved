@@ -133,7 +133,7 @@ CSV.foreach(filepath1, csv_options) do |row|
     description: row[7]
   )
   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
-  sleep(5)
+  sleep(1)
 end
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
@@ -150,7 +150,7 @@ CSV.foreach(filepath3, csv_options) do |row|
     description: row[7]
   )
   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
-  sleep(5)
+  sleep(1)
 end
 
 GroupedEvent.create!(group: Group.first, event: Event.all[0])
