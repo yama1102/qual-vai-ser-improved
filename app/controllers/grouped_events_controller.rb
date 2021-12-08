@@ -18,6 +18,13 @@ class GroupedEventsController < ApplicationController
     end
   end
 
+  def destroy
+    group = Group.find(params[:id])
+    grouped_event = GroupedEvent.find(params[:grouped_event_id])
+    grouped_event.destroy
+    redirect_to group_grouped_events_path(group), notice: "Evento retirado"
+  end
+
   def votes
     @member = Member.where(user: current_user)
   end
