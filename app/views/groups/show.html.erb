@@ -7,12 +7,13 @@
     <div class="group-body">
       <p><% @group.user_id %></p>
       <% @group.members.each do |member| %>
-        <p>
-          <%= member.user.email %>
-          <%= link_to "delete",
-              member_path, method: :delete,
-              remote: true unless member.user == current_user%>
-        </p>
+         <p>
+            <%= member.user.email %>
+            <%= link_to "delete",
+                member_path, method: :delete,
+                remote: true unless member.user == current_user
+            %>
+         </p>
       <% end %>
     </div>
     <div class="group-chat-container d-flex justify-content-around">
