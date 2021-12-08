@@ -7,7 +7,11 @@
     <div>
       <ul class="list-group">
       <li class="list-group-item"><strong>Nome: </strong><%= group.name %></li>
-
+      <li class="list-group-item"><strong>membros: </strong>
+        <% group.members.each do |a|%>
+        <%= cl_image_tag a.user.photo.key, class:"avatar-group" if a.user.photo.attached? %>
+        <%end%>
+      </li>
       <li class="list-group-item"><strong>Administrador: </strong><%= group.user.id %></li>
 
 
