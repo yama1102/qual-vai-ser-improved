@@ -6,10 +6,14 @@
   <% @groups.each do |group|%>
     <div class="box-group">
       <h5><strong>Nome: </strong><%= group.name %></h5>
-      <p>Administrador: <%= group.user.id %></p>
+      <li><strong>membros: </strong>
+        <% group.members.each do |a|%>
+        <%= cl_image_tag a.user.photo.key, class:"avatar-group" if a.user.photo.attached? %>
+        <%end%>
+      </li>
       <div class="justify-content-center">
         <%= link_to '+ info',group_path(group), class: "btn botton-info" %>
       </div>
-  </div>
+    </div>
   <% end %>
 </div>

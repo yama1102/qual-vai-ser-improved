@@ -3,17 +3,37 @@
 </div>
 
 <div class="row justify-content-around m-0 text-white">
-  <div>
-    <div class="group-chat-container d-flex justify-content-around">
+    <div style="width:1100px; height: 750px;" class="group-chat-container d-flex justify-content-around">
       <div class="group-container mx-2">
         <h3 class="text-center">Membros</h3>
-        <div style="height: 150px;" class="d-flex group-card p-3 mb-3">
+        <div style="height: 165px;" class="d-flex group-card p-3 mb-3">
             <% @group.members.each do |member| %>
             <div class="mx-3">
               <% if member.user.photo.attached? %>
                 <%= cl_image_tag member.user.photo.key, class: "avatar"%>
               <% end %>
-              <p style="font-size:12px;" class="text-center"><%= member.user.nickname %></p>
+              <div class="d-flex">
+                <p style="font-size:12px;" class="text-center"><%= member.user.nickname %></p>
+                <% unless member.user == current_user %>
+                  <a href=<%= member_path(member) %> data-method="delete" data-confirm="Tem certeza para remover este membro?" class="ml-1">
+                    <i style="font-size:10px;" class="fas fa-user-slash text-white"></i>
+                  </a>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div style="height: 70px;" class="d-flex group-card mb-3 p-3 justify-content-center ">
+          <%= simple_form_for [@group, @member], remote: true do |f| %>
+            <div class="d-flex justify-content-between button-inline">
+            <%= f.association :user,
+              collection: @friends,
+              label_method: :email,
+              value_method: :id,
+              label: false,
+              multiple: true,
+              prompt: "Selecione seu amigo" %>
+            <%= f.submit "Adicionar", class: "button-add-friend ml-2" %>
             </div>
           <% end %>
         </div>
@@ -53,23 +73,11 @@
         </div>
       </div>
     </div>
-    <div>
-      <%= simple_form_for [@group, @member], remote: true do |f| %>
-      <%= f.association :user,
-        collection: User.where.not(id: current_user),
-        label_method: :email,
-        value_method: :id,
-        label: false,
-        multiple: true,
-        prompt: "Adicione seu amigo" %>
-      <%= f.submit "Adicione seu amigo" %>
-      <% end %>
-    </div>
+
     <div class="row d-flex justify-content-center mt-5">
     <div class="box-bottons">
       <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn botton-enquete" %>
       <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
       <%= link_to "todos os grupos", groups_path(@group), class: "btn botton-back" %>
     </div>
-  </div>
 </div>
