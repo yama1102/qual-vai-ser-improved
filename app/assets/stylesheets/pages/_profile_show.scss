@@ -2,6 +2,7 @@
  width: 450px;
   height: 300px;
 }
+
 #one {
   position: absolute;
   top: 250px;
@@ -58,19 +59,12 @@
 }
 
 // botões ---------
-.add-button{
-  position: absolute;
-  right: 150px;
-  bottom:   0;
-}
-.button-group {
-  position: absolute;
-  top: 500px;
-  right: 277px;
-}
-.button-back{
-  text-align: center;   
+.wrap-button{
   position: fixed;
-  top: 550px;
-  right: 280px;
+  right: 110px;
+  top: 500px;
+  justify-content: space-evenly;
+}
+#button-two{
+  margin-left: 10px;
 }
