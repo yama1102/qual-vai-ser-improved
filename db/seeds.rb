@@ -88,18 +88,18 @@ member10 = User.create!(
 )
 member10.photo.attach(io: file_member10, filename: 'photo.png', content_type: 'image/png')
 
-user11 = URI.open('https://res.cloudinary.com/jump-29/image/upload/v1638966749/Captura_de_Tela_%C3%81rea_de_Sele%C3%A7%C3%A3o_20211208093119_dbphaz.jpg')
+user11 = URI.open('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
 user1 = User.create!(
-  email: 'paulo@qualvaiser.com',
-  nickname: "Paulo",
+  email: 'maria@email.com',
+  nickname: "Maria",
   password: '123456'
 )
 user1.photo.attach(io: user11, filename: 'photo.png', content_type: 'image/png')
 
-user12 = URI.open('https://images.unsplash.com/photo-1600273759837-a4d4abb62142?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')
+user12 = URI.open('https://res.cloudinary.com/jump-29/image/upload/v1638966749/Captura_de_Tela_%C3%81rea_de_Sele%C3%A7%C3%A3o_20211208093119_dbphaz.jpg')
 user2 = User.create!(
-  email: 'maria@qualvaiser.com',
-  nickname: "Maria",
+  email: 'paulo@qualvaiser.com',
+  nickname: "Paulo",
   password: '123456'
 )
 user2.photo.attach(io: user12, filename: 'photo.png', content_type: 'image/png')
@@ -141,7 +141,7 @@ CSV.foreach(filepath1, csv_options) do |row|
     description: row[7]
   )
   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
-  sleep(1)
+  sleep(5)
 end
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
@@ -158,7 +158,7 @@ CSV.foreach(filepath3, csv_options) do |row|
     description: row[7]
   )
   event.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
-  sleep(1)
+  sleep(5)
 end
 
 GroupedEvent.create!(group: Group.first, event: Event.all[0])
