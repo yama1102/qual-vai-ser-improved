@@ -5,21 +5,20 @@
   padding-top: 60px;
   width:500px;
   margin-bottom: 100px;
-  position: sticky;
 }
 #two {
-
-  top: 250px;
-  right: 100px;
-  padding-top: 60px;
+  right: 60px;
 }
 .field{
-  max-width:450px;
+ max-width:350px;
+ height: 450px;
+ justify-content: space-between;
+
 }
+
 .div {
-  position: sticky;
   border-left: 3px solid rgb(136, 134, 134);
-  height:450px;
+  height:350px;
   left: 40%;
   margin-left: -2px;
   margin-top: 50px;
@@ -56,14 +55,4 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-}
-
-// botões ---------
-.wrap-button{
-  right: 110px;
-  top: 550px;
-  justify-content: space-evenly;
-}
-#button-two{
-  margin-left: 10px;
 }
