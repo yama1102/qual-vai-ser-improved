@@ -1,5 +1,18 @@
-<div style="text-align:center;">
-  <%= link_to 'Crie um grupo',new_group_path, class: "btn botton-search" %>
+
+<div class="d-flex justify-content-center align-items-center flex-column mt-3">
+  <div style="" class="group-chat-container d-flex flex-column justify-content-center text-center mt-3">
+    <h3><strong>Crie o seu grupo!</strong></h3>
+    <div style="width: 800px; height:100px" class="group-card justify-content-center align-itens-center pt-4 mx-1" >
+      <%= simple_form_for @group do |f| %>
+        <div class="d-flex justify-content-around">
+          <div id="group-input" style="height: 50px; width:630px;"class="container d-flex justify-content-center align-itens-center">
+            <%= f.input_field :name, label: false, placeholder: "Qual vai ser o nome do seu novo grupo?" %>
+          </div>
+          <%= f.button :submit, value: "Criar", class:"btn botton-vote mr-4" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="container-group">
   <% @groups.each do |group|%>
