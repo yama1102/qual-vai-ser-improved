@@ -29,8 +29,8 @@
               <%= user.nickname %>
             </div>
             <%= f.hidden_field :user_id, value: user.id%>
-            <div style="text-align: center;">
-              <%= f.submit "Adicionar"%>
+            <div class="button-add-friends" style="text-align: center;">
+              <%= f.submit "Adicionar", class: "btn btn-outline-dark btn-sm"%>
             </div>
           <% end %>
         </div>
@@ -39,4 +39,8 @@
   <% else %>
     <h2> Usuário não encontrado! <i class="far fa-frown"></i></h2>
   <% end %>
+</div>
+
+<div class="box-bottons mt-5" style="text-align: center;">
+  <%= link_to 'Voltar', profiles_path, class: "btn botton-back" %>
 </div>

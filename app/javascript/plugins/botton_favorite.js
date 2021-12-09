@@ -4,9 +4,9 @@ const btnEvents = () => {
     btn.addEventListener("click", (event) => {
       btn.classList.toggle("botton-warning");
       if (document.querySelector(".botton-warning")) {
-        btn.innerText = "evento favoritado";
+        btn.innerText = "Evento favoritado";
       } else {
-        btn.innerText = "favoritar evento";
+        btn.innerText = "Favoritar evento";
       }
     })
   }
