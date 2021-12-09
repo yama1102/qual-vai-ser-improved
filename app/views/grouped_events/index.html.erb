@@ -3,42 +3,48 @@
   <h1>ENQUETE</h1>
 </div>
 
-<h3 class="text-light">Eventos selecionados</h3>
-
-<% @grouped_events.each do |grouped_event| %>
-
-<div class="card-product m-5 w-50">
-    <%= cl_image_tag grouped_event.event.photo.key, height: 134, width: 262, crop: :fill %>
-    <div class="card-product-infos mt-3 mb-3">
-      <%= link_to(event_path(grouped_event.event)) do %>
-        <h2><%= grouped_event.event.name %></h2>
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <div class="group-chat-container d-flex flex-column justify-content-center">
+    <h2 class="text-light">Eventos selecionados</h2>
+    <% @grouped_events.each do |grouped_event| %>
+      <div style="width: 1000px;" class="group-card mt-3 d-flex">
+        <%= cl_image_tag grouped_event.event.photo.key, height: 120, width: 250, class: "image-vote m-3" %>
+        <div style="width:700px" class="d-flex align-items-center justify-content-between">
+          <div class="my-4">
+            <%= link_to(event_path(grouped_event.event)) do %>
+              <h4><%= grouped_event.event.name %></h4>
+            <% end %>
+            <div class="d-flex justify-content-start">
+              <p>Preço: <%= grouped_event.event.price %></p>
+              <p class="ml-3">Região: <%= grouped_event.event.region %></p>
+            </div>
+          </div>
+          <div style="height:50px;" class="mr-2">
+            <%= link_to 'Remover', grouped_event_path(@group, grouped_event_id: grouped_event.id), method: :delete, class: "btn botton-vote" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="group-chat-container d-flex flex-column justify-content-center text-center mt-3">
+    <h4>Adicione seu evento preferido a enquete</h4>
+    <div style="width: 1000px;" class="group-card justify-content-center pt-4" >
+      <%= form_with url: group_grouped_events_path(@group), method: :get do %>
+        <%= text_field_tag :region,
+            params[:region],
+            placeholder: "Região"
+        %>
+        <%= text_field_tag :date,
+            params[:date],
+            placeholder: "Data",
+            class: "datepicker"
+        %>
+        <div style="text-align: center; margin:20px ">
+          <%= submit_tag 'Pesquisar', class: "btn botton-search" %>
+        </div>
       <% end %>
-      <p>Preço: <%= grouped_event.event.price %></p>
-      <p>Região: <%= grouped_event.event.region %></p>
-      <%= link_to 'Remover', grouped_event_path(@group, grouped_event_id: grouped_event.id), method: :delete, class: "btn btn-outline-dark btn-sm" %>
     </div>
-</div>
-
-<% end %>
-
-<div class="text-light" style="text-align:center;">
-  <h5>Adicione seu evento preferido a enquete</h5>
-</div>
-<div class="row justify-content-center" >
-  <%= form_with url: group_grouped_events_path(@group), method: :get do %>
-    <%= text_field_tag :region,
-        params[:region],
-        placeholder: "Região"
-    %>
-    <%= text_field_tag :date,
-        params[:date],
-        placeholder: "Data",
-        class: "datepicker"
-    %>
-    <div style="text-align: center; margin:20px ">
-      <%= submit_tag 'Pesquisar', class: "btn botton-search" %>
-    </div>
-  <% end %>
+  </div>
 </div>
 
 <div class="row m-0">
@@ -49,10 +55,12 @@
 <div class="row justify-content-center m-0">
   <% @events.each do |event|%>
     <div class="event-body col-3">
-      <div class="flat-card">
+      <div class="flat-card p-1">
         <div>
           <% if event.photo.attached? %>
-            <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
+            <%= link_to(event_path(event)) do %>
+              <%= cl_image_tag event.photo.key, height: 128, width: 250, crop: :fill %>
+            <% end %>
           <% end %>
         </div>
         <div class="event-text">
@@ -62,9 +70,8 @@
           <p><%= event.address %></p>
           <p><%= event.date.split(",")[0] %></p>
         </div>
-        <div class="d-flex button-index">
-          <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
-          <%= link_to 'Adicionar para votos', group_grouped_events_path(@group, event_id: event), method: :post, class: "btn btn-outline-dark btn-sm" %>
+        <div class="button-index border border-black">
+          <%= link_to 'Adicionar', group_grouped_events_path(@group, event_id: event), method: :post, class: "btn btn-outline-dark btn-sm" %>
         </div>
       </div>
     </div>
@@ -73,10 +80,7 @@
 
 <div class="row justify-content-around m-0 text-white">
   <div class="text-align center">
-    <a href="#" class ="btn botton-favorite">Adicionar Evento</a>
-
     <%= link_to "Vote", votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
-
     <%= link_to "Voltar para Grupo", group_path(@group), class: "btn botton-back" %>
   </div>
 </div>
