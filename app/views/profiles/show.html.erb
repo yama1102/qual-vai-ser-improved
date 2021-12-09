@@ -1,52 +1,48 @@
 
 <body>
-  <div><h2 style="color: white">Bem-vindo, <%= current_user.nickname %></h2></div>
-    <div class="row justify-content-around m-0">
-      <div class="box" id="one">
-        <div style="color: white; text-align:center;">
-          <h4>Eventos favoritados</h4>
-        </div>
+  <h2 style="color: white; text-align: center; ">Bem-vindo, <%= current_user.nickname %></h2>
+
+  <div class="row justify-content-around m-0">
+    <div class="box" id="one">
+      <div style="color: white; text-align:center;">
+        <h4>Eventos favoritados</h4>
+      </div>
+      <% current_user.events.each do |event| %>
         <div class="card-product">
-          <% current_user.events.each do |event| %>
           <%= cl_image_tag event.photo.key, size: '205x250' if event.photo.attached? %>
-            <div class="card-product-infos">
-             <h2><%= event.name %></h2>
-            </div>
-              <%= link_to '+info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
-          <% end %>
+          <div class="card-product-infos col-6">
+            <h2><%= event.name %></h2>
+          </div>
+          <%= link_to '+info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
         </div>
-      </div>
+      <% end %>
+    </div>
 
-      <div class="div"></div>
+    <div class="div"></div>
 
-      <div class="field">
-
-
-        <div class="box" id="two">
-          <div style="color: white; text-align:center;">
-              <h4>Amigos</h4>
-          </div>
-          <div>
-            <div class="row justify-content-around m-0">
-              <% current_user.friends.each do |user|%>
-              <div class="col-4">
-                  <h5 style="color: white"><%= user.nickname %></h5>
-                  <h5><%= cl_image_tag user.photo.key, size: '205x250' if user.photo.attached? %></h5>
-              </div>
-              <% end %>
+    <div class="field">
+      <div class="box" id="two">
+        <div style="color: white; text-align:center;">
+            <h4>Amigos</h4>
+        </div>
+        <div>
+          <div class="row justify-content-around m-0">
+            <% current_user.friends.each do |user|%>
+            <div class="col-3 friends-photo">
+                <div class="text-center"><%= cl_image_tag user.photo.key, class:"avatar-large" if user.photo.attached? %></div>
+                <h6 class="text-center"style="color: white"><%= user.nickname %></h6>
             </div>
-          </div>
-            <div class="add-button"style="text-align:center;">
-              <%= link_to 'Adicione amigos',new_friendship_path, class: "btn btn-outline-primary btn-sm radius-15" %>
-            </div>
+            <% end %>
           </div>
         </div>
-      </div>
-       <div class="button-group">
-          <%= link_to 'Grupos', groups_path, class: "btn btn-outline-primary btn-sm radius-15" %>
+        <div class="row wrap-button" style="text-align:center;">
+        <div>
+          <%= link_to 'Adicione amigos',new_friendship_path, class: "btn botton-favorite" %>
         </div>
-
-      <div class="button-back">
-        <%= link_to 'Voltar',events_path, class: "btn btn-outline-primary btn-sm radius-15" %>
+        <div class="button-back" id="button-two">
+          <%= link_to 'Voltar',events_path, class: "btn botton-back" %>
+        </div>
       </div>
+    </div>
+  </div>
 </body>

@@ -21,13 +21,12 @@
             </div>
             <p>Região: <%= @grouped_events[0].event.region %></p>
             <p class="card-trip-pricing"><%= @grouped_events[0].event.price %></p>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <%= link_to "Voltar para Grupo", group_path(@grouped_events[0].group), class: "btn btn-secondary btn-lg mt-3 mb-4 radius-15" %>
+    <%= link_to "Voltar para Grupo", group_path(@grouped_events[0].group), class: "btn botton-back" %>
   </div>
 </div>

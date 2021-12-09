@@ -36,7 +36,7 @@
         class: "datepicker"
     %>
     <div style="text-align: center; margin:20px ">
-      <%= submit_tag 'Pesquisar', class: "btn btn-dark" %>
+      <%= submit_tag 'Pesquisar', class: "btn botton-search" %>
     </div>
   <% end %>
 </div>
@@ -73,10 +73,10 @@
 
 <div class="row justify-content-around m-0 text-white">
   <div class="text-align center">
-    <a href="#" class ="btn btn-primary btn-sm">Adicionar Evento</a>
+    <a href="#" class ="btn botton-favorite">Adicionar Evento</a>
 
-    <%= link_to "Vote", votes_group_grouped_events_path(@group), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Vote", votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
 
-    <%= link_to "Voltar para Grupo", group_path(@group), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Voltar para Grupo", group_path(@group), class: "btn botton-back" %>
   </div>
 </div>

@@ -1,27 +1,28 @@
-.box{
- width: 450px;
-  height: 300px;
-}
+
 #one {
-  position: absolute;
   top: 250px;
   left: 100px;
-  height: 200px;
+  padding-top: 60px;
+  width:500px;
+  margin-bottom: 100px;
+  position: sticky;
 }
 #two {
-  position: fixed;
+
   top: 250px;
   right: 100px;
-  height: 200px;
-
+  padding-top: 60px;
 }
-.div{
-  position: fixed;
+.field{
+  max-width:450px;
+}
+.div {
+  position: sticky;
   border-left: 3px solid rgb(136, 134, 134);
-  height:420px;
-  left: 50%;
+  height:450px;
+  left: 40%;
   margin-left: -2px;
-  top: 200px;
+  margin-top: 50px;
 }
 .card-product {
   overflow: hidden;
@@ -58,6 +59,10 @@
 }
 
 // botões ---------
+<<<<<<< HEAD
+.wrap-button{
+  right: 110px;
+=======
 .add-button{
   position: absolute;
   right: 150px;
@@ -69,8 +74,12 @@
   right: 277px;
 }
 .button-back{
-  text-align: center;   
+  text-align: center;
   position: fixed;
+>>>>>>> master
   top: 550px;
-  right: 280px;
+  justify-content: space-evenly;
+}
+#button-two{
+  margin-left: 10px;
 }
