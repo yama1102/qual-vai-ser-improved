@@ -1,14 +1,19 @@
-<div class="busca text-center" style= "margin:40px 450px 30px 450px;">
-  <%= form_with url: search_friendships_url, method: :get do %>
-    <%= text_field_tag :nickname,
-        params[:nickname],
-        class: "form-control",
-        placeholder: "Digite um nome"
-    %>
-    <div style="text-align: center; margin:20px ">
-      <%= submit_tag 'Pesquisar', class: "btn botton-search" %>
+<div class="d-flex justify-content-center align-items-center flex-column mt-3">
+  <div style="" class="group-chat-container d-flex flex-column justify-content-center text-center mt-3">
+    <h3><strong>Encontre seus amigos!</strong></h3>
+    <div style="width: 800px; height:100px" class="group-card justify-content-center align-itens-center pt-4 mx-1" >
+      <%= form_with url: search_friendships_url, method: :get do %>
+        <div class="d-flex justify-content-around align-itens-center mt-1">
+          <div id="group-input" style="height: 40px; width:610px;"class="container d-flex justify-content-center align-itens-center">
+            <%= text_field_tag :nickname, params[:nickname], class: "form-control", placeholder: "Digite um nome" %>
+          </div>
+          <div style="text-align;" class="mr-3">
+            <%= submit_tag 'Pesquisar', class: "btn botton-search" %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
 
 <div class="row justify-content-around  container-events ">
