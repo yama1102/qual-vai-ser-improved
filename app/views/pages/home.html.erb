@@ -1,9 +1,9 @@
 <div class="backland">
   <div id="carouselExampleSlidesOnly" class="carousel slide w-100" data-ride="carousel">
 
-    <div class="carousel-inner mx-auto" style="padding-top:80px">
+    <div class="carousel-inner mx-auto">
     <div class="botton" id="home-bt" style="text-align:center">
-      <%= link_to 'todos os eventos', events_path, class: "nav-link"%>
+      <%= link_to 'Todos os eventos', events_path, class: "nav-link"%>
     </div>
       <% 10.times do |i| %>
         <div class="carousel-item <%= "active" if i.zero? %>">

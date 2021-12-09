@@ -23,14 +23,13 @@
 
 .botton {
   position: absolute;
-  left: 43%;
-  bottom: 400px;
+  transform: translate(36vw, 20vh);
   z-index: 999;
 
   .nav-link {
-  color: rgb(5, 5, 5);
-  border: 2px solid #cbb2fe;
-  background-color: #cbb2fe;
+  color:white;
+  border: 2px solid #e5abf3;
+  background-color: #5a0270;
   padding: 8px 24px;
   border-radius: 40px;
   font-weight: lighter;

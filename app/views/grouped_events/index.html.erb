@@ -65,7 +65,7 @@
           <p><%= event.address %></p>
           <p><%= event.date.split(",")[0] %></p>
         </div>
-        <div class="button-index-survey border border-black mt-auto">
+        <div class="button-index-survey mt-auto">
           <%= link_to 'Adicionar', group_grouped_events_path(@group, event_id: event), method: :post, class: "btn btn-outline-dark btn-sm" %>
         </div>
       </div>
@@ -74,8 +74,8 @@
 </div>
 
 <div class="row justify-content-around mt-4 text-white">
-  <div class="text-align center">
-    <%= link_to "Vote", votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
+  <div class="text-align center mb-4">
+    <%= link_to "Votar", votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
     <%= link_to "Voltar para Grupo", group_path(@group), class: "btn botton-back" %>
   </div>
 </div>

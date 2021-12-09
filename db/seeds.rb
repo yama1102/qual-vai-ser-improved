@@ -106,22 +106,32 @@ member10.photo.attach(io: file_member10, filename: 'photo.png', content_type: 'i
 
 puts "Criando grupos"
 
-group1 = Group.create!(user: user1, name: Faker::Team.name)
-Member.create!(user: user1, group: group1, adm: true)
+group1 = Group.create!(user: member5, name: "Balada de sábado")
+Member.create!(user: member5, group: group1, adm: true)
 Member.create!(user: user2, group: group1)
+Member.create!(user: member10, group: group1)
+Member.create!(user: member3, group: group1)
+Member.create!(user: member2, group: group1)
 
-numbers = 0..3
-numbers.each do |i|
-  array_users = User.all
-  user = array_users[i]
-  array_users.slice(i)
-  group = Group.create!(user: user, name: Faker::Team.name)
-  Member.create!(user: user, group: group, adm: true)
-  numbers.each do |j|
-    member = array_users[j]
-    Member.create!(user: member, group: group)
-  end
-end
+group2 = Group.create!(user: member3, name: "Carnaval 2022")
+Member.create!(user: member3, group: group2, adm: true)
+Member.create!(user: member4, group: group2)
+Member.create!(user: member10, group: group2)
+Member.create!(user: member2, group: group2)
+Member.create!(user: member5, group: group2)
+
+# numbers = 0..3
+# numbers.each do |i|
+#   array_users = User.all
+#   user = array_users[i]
+#   array_users.slice(i)
+#   group = Group.create!(user: user, name: Faker::Team.name)
+#   Member.create!(user: user, group: group, adm: true)
+#   numbers.each do |j|
+#     member = array_users[j]
+#     Member.create!(user: member, group: group)
+#   end
+# end
 
 Event.destroy_all
 
