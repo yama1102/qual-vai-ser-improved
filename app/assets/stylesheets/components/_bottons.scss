@@ -62,3 +62,17 @@
       color:rgb(5, 5, 5);
     }
 }
+
+.button-index-survey {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  // position: absolute;
+  // bottom: 20px;
+  // left: 32%;
+  .btn-outline-dark {
+    background-color: #757bc8;
+    border-color: #757bc8;
+    color: #fff;
+}
+}
