@@ -1,19 +1,22 @@
-
 <div style="text-align:center;">
   <%= link_to 'Crie um grupo',new_group_path, class: "btn botton-search" %>
 </div>
 <div class="container-group">
   <% @groups.each do |group|%>
     <div class="box-group">
-      <h5><strong>Nome: </strong><%= group.name %></h5>
-      <li><strong>membros: </strong>
-        <% group.members.each do |a|%>
+      <h5><strong><%= group.name %></strong></h5>
+      <p>Membros:</p>
+      <p><% group.members.each do |a|%>
         <%= cl_image_tag a.user.photo.key, class:"avatar-group" if a.user.photo.attached? %>
         <%end%>
-      </li>
+      </p>
       <div class="justify-content-center">
         <%= link_to '+ info',group_path(group), class: "btn botton-info" %>
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="box-bottons" style="text-align: center; margin-top: 30px">
+  <%= link_to 'voltar', profiles_path, class: "btn botton-back" %>
 </div>

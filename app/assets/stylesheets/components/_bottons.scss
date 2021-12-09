@@ -63,13 +63,17 @@
     }
 }
 
+.button-add-friends {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 25px;
+  left: 40%;
+
 .button-index-survey {
   display: flex;
   justify-content: center;
   align-items: end;
-  // position: absolute;
-  // bottom: 20px;
-  // left: 32%;
   .btn-outline-dark {
     background-color: #757bc8;
     border-color: #757bc8;

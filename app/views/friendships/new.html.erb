@@ -1,4 +1,4 @@
-<div class="busca" style= "margin:40px 450px 30px 450px;">
+<div class="busca text-center" style= "margin:40px 450px 30px 450px;">
   <%= form_with url: search_friendships_url, method: :get do %>
     <%= text_field_tag :nickname,
         params[:nickname],
@@ -23,11 +23,15 @@
             <%= user.nickname %>
           </div>
           <%= f.hidden_field :user_id, value: user.id%>
-          <div style="text-align: center;">
-            <%= f.submit "Adicionar"%>
+          <div class="button-add-friends">
+            <%= f.submit "Adicionar", class: "btn btn-outline-dark btn-sm"%>
           </div>
         <% end %>
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="box-bottons" style="text-align: center;">
+  <%= link_to 'voltar', profiles_path, class: "btn botton-back" %>
 </div>

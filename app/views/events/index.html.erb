@@ -25,10 +25,10 @@
   <div class="row justify-content-center container-events">
     <% @events.each do |event|%>
       <div class="event-body col-3">
-        <div class="flat-card">
+        <div class="flat-card p-1">
           <div>
             <% if event.photo.attached? %>
-              <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
+              <%= cl_image_tag event.photo.key, height: 128, width: 250, crop: :fill %>
             <% end %>
           </div>
           <div class="event-text">

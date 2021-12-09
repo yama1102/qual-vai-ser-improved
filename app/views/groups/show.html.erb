@@ -73,11 +73,11 @@
         </div>
       </div>
     </div>
-
-    <div class="row d-flex justify-content-center mt-5">
-    <div class="box-bottons">
-      <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn botton-enquete" %>
-      <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
-      <%= link_to "todos os grupos", groups_path(@group), class: "btn botton-back" %>
-    </div>
+</div>
+<div class="row d-flex justify-content-center mt-5">
+  <div class="box-bottons">
+    <%= link_to 'Enquete', group_grouped_events_path(@group), class: "btn botton-enquete" %>
+    <%= link_to "vote", @group.close ? result_group_grouped_events_path(@group) : votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
+    <%= link_to "todos os grupos", groups_path(@group), class: "btn botton-back" %>
+  </div>
 </div>
