@@ -28,7 +28,7 @@
             <div class="d-flex justify-content-between button-inline">
             <%= f.association :user,
               collection: @friends,
-              label_method: :email,
+              label_method: :nickname,
               value_method: :id,
               label: false,
               multiple: true,

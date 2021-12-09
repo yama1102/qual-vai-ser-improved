@@ -1,4 +1,4 @@
-<h2 style="color:white">Encontre seus amigos</h2>
+
 
 <div class="busca" style= "margin:40px 450px 30px 450px;">
   <%= form_with url: search_friendships_url, method: :get do %>
@@ -16,7 +16,7 @@
 <div class="row justify-content-around m-0">
   <% if @users.present? %>
     <% @users.each do |user|%>
-      <div class="row card m-3 radius-10 col-2"  style=" width: 15rem;">
+      <div class="row card m-3 radius-10 col-2 group-chat-container"  style=" width: 15rem;">
         <div class="card-body" id="bg-card">
           <%= simple_form_for @friendship do |f| %>
           <div style="text-align: center;">
