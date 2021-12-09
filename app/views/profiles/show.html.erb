@@ -1,5 +1,5 @@
 
-<body>
+<div>
   <h2 style="color: white; text-align: center; ">Bem-vindo, <%= current_user.nickname %></h2>
 
   <div class="row justify-content-around m-0">
@@ -36,13 +36,14 @@
           </div>
         </div>
         <div class="row wrap-button" style="text-align:center;">
-        <div>
-          <%= link_to 'Adicione amigos',new_friendship_path, class: "btn botton-favorite" %>
-        </div>
-        <div id="button-two">
-          <%= link_to 'Voltar',events_path, class: "btn botton-back" %>
+          <div>
+            <%= link_to 'Adicione amigos',new_friendship_path, class: "btn botton-favorite" %>
+          </div>
+          <div id="button-two">
+            <%= link_to 'Voltar',events_path, class: "btn botton-back" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</body>
+</div>

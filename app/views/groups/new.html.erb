@@ -1,11 +1,13 @@
 <h1 style="color: white;"><strong> Adicione seus Amigos </strong></h1>
 
-<div class="container">
+<div class="text-center">
   <%= simple_form_for @group do |f| %>
-    <%= f.input :name %>
-    <%= f.button :submit, value: "Crie seu grupo", class:"btn botton-vote" %>
+    <div id="group-input" class="container d-flex justify-content-center align-itens-center">
+      <%= f.input_field :name, label: false, placeholder: "Qual vai ser o nome do seu novo grupo?" %>
+    </div>
+    <%= f.button :submit, value: "Crie o grupo", class:"btn botton-vote mt-4" %>
   <% end %>
 </div>
-<div style="text-align: center; margin-top:300px;">
+<div class="box-bottons" style="text-align: center; margin-top:100px;">
     <%= link_to 'voltar', groups_path, class: "btn botton-back" %>
 </div>

@@ -62,3 +62,16 @@
       color:rgb(5, 5, 5);
     }
 }
+
+.button-add-friends {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 25px;
+  left: 40%;
+  .btn-outline-dark {
+    background-color: #757bc8;
+    border-color: #757bc8;
+    color: #fff;
+}
+}

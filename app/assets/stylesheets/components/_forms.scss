@@ -1,0 +1,11 @@
+#group-input {
+  input {
+    width: 80%;
+    border: 0;
+    &:focus-visible {
+      border: 0;
+      outline: 0;
+      background: none;
+    }
+  }
+}
