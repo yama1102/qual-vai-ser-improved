@@ -47,15 +47,10 @@
   </div>
 </div>
 
-<div class="row m-0">
-  <div class="col-12" style="margin-top:0;">
-    <h2 style = "color:white"class="destaques neonLand my-5">eventos</h2>
-  </div>
-</div>
 <div class="row justify-content-center m-0">
   <% @events.each do |event|%>
     <div class="event-body col-3">
-      <div class="flat-card p-1">
+      <div class="flat-card p-1 d-flex align-items-center flex-column">
         <div>
           <% if event.photo.attached? %>
             <%= link_to(event_path(event)) do %>
@@ -70,7 +65,7 @@
           <p><%= event.address %></p>
           <p><%= event.date.split(",")[0] %></p>
         </div>
-        <div class="button-index border border-black">
+        <div class="button-index-survey border border-black mt-auto">
           <%= link_to 'Adicionar', group_grouped_events_path(@group, event_id: event), method: :post, class: "btn btn-outline-dark btn-sm" %>
         </div>
       </div>
@@ -78,7 +73,7 @@
   <% end %>
 </div>
 
-<div class="row justify-content-around m-0 text-white">
+<div class="row justify-content-around mt-4 text-white">
   <div class="text-align center">
     <%= link_to "Vote", votes_group_grouped_events_path(@group), class: "btn botton-vote" %>
     <%= link_to "Voltar para Grupo", group_path(@group), class: "btn botton-back" %>
