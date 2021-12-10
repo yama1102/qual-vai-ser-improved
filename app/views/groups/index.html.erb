@@ -15,16 +15,16 @@
   </div>
 </div>
 <div class="container-group">
-  <% @groups.each do |group|%>
+  <% current_user.members.each do |member|%>
     <div class="box-group">
-      <h5><strong><%= group.name %></strong></h5>
+      <h5><strong><%= member.group.name %></strong></h5>
       <p>Membros:</p>
-      <p><% group.members.each do |a|%>
+      <p><% member.group.members.each do |a|%>
         <%= cl_image_tag a.user.photo.key, class:"avatar-group" if a.user.photo.attached? %>
         <%end%>
       </p>
       <div class="justify-content-center">
-        <%= link_to '+ info',group_path(group), class: "btn botton-info" %>
+        <%= link_to '+ info',group_path(member.group), class: "btn botton-info" %>
       </div>
     </div>
   <% end %>
