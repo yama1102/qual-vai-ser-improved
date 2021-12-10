@@ -16,23 +16,27 @@
   <% end %>
 </div>
 
-<div class="row justify-content-center container-events">
-  <% @events.each do |event|%>
-    <div class="event-body col-3">
-      <div class="flat-card">
-        <div>
-          <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
-        </div>
-        <div class="event-text">
-          <h6><strong><%= event.name %></strong></h5>
-          <p style="color:red;">A partir de <%= event.price %></p>
-          <p><%= event.region %></p>
-          <p><%= event.address %></p>
-        </div>
-        <div class="event-body">
-          <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
+<% if @events[0].nil? %>
+  <h3 class="text-white text-center mt-2">Evento não encontrado para data e região pesquisadas!</h3>
+<% else %>
+  <div class="row justify-content-center container-events">
+    <% @events.each do |event|%>
+      <div class="event-body col-3">
+        <div class="flat-card">
+          <div>
+            <%= cl_image_tag event.photo.key, height: 134, width: 262, crop: :fill %>
+          </div>
+          <div class="event-text">
+            <h6><strong><%= event.name %></strong></h5>
+            <p style="color:red;">A partir de <%= event.price %></p>
+            <p><%= event.region %></p>
+            <p><%= event.address %></p>
+          </div>
+          <div class="event-body">
+            <%= link_to '+ info',event_path(event), class: "btn btn-outline-dark btn-sm" %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
