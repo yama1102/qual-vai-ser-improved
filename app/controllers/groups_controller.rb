@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     @member = Member.new
     @friends = get_user_friends
   end
-
+ 
   def get_user_friends
     friends = Set.new
     Friendship.where("user_id = ? OR friend_id = ?", current_user.id, current_user.id).each do |friendship|
