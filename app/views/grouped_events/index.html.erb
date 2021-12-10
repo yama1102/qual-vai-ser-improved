@@ -47,37 +47,32 @@
   </div>
 </div>
 
-<% if @events[0].nil? %>
-  <h3 class="text-white text-center mt-2">Evento não encontrado para data e região pesquisadas!</h3>
-<% else %>
 
-  <div class="row justify-content-center m-0">
-    <% @events.each do |event|%>
-      <div class="event-body col-3">
-        <div class="flat-card p-1 d-flex align-items-center flex-column">
-          <div>
-            <% if event.photo.attached? %>
-              <%= link_to(event_path(event)) do %>
-                <%= cl_image_tag event.photo.key, height: 128, width: 250, crop: :fill %>
-              <% end %>
+<div class="row justify-content-center m-0">
+  <% @events.each do |event|%>
+    <div class="event-body col-3">
+      <div class="flat-card p-1 d-flex align-items-center flex-column">
+        <div>
+          <% if event.photo.attached? %>
+            <%= link_to(event_path(event)) do %>
+              <%= cl_image_tag event.photo.key, height: 128, width: 250, crop: :fill %>
             <% end %>
-          </div>
-          <div class="event-text">
-            <h6><strong><%= event.name %></strong></h5>
-            <p style="color:red;"></strong>A partir de <%= event.price %></strong></p>
-            <p><%= event.region %></p>
-            <p><%= event.address %></p>
-            <p><%= event.date.split(",")[0] %></p>
-          </div>
-          <div class="button-index-survey mt-auto">
-            <%= link_to 'Adicionar', group_grouped_events_path(@group, event_id: event), method: :post, class: "btn btn-outline-dark btn-sm" %>
-          </div>
+          <% end %>
+        </div>
+        <div class="event-text">
+          <h6><strong><%= event.name %></strong></h5>
+          <p style="color:red;"></strong>A partir de <%= event.price %></strong></p>
+          <p><%= event.region %></p>
+          <p><%= event.address %></p>
+          <p><%= event.date.split(",")[0] %></p>
+        </div>
+        <div class="button-index-survey mt-auto">
+          <%= link_to 'Adicionar', group_grouped_events_path(@group, event_id: event), method: :post, class: "btn btn-outline-dark btn-sm" %>
         </div>
       </div>
-    <% end %>
-  </div>
-
-<% end %>
+    </div>
+  <% end %>
+</div>
 
 <div class="row justify-content-around mt-4 text-white">
   <div class="text-align center mb-4">
