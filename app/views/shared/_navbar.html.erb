@@ -43,11 +43,10 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Entrar",
-              new_user_session_path,
-              class: "nav-link btn btn-ghost"
-          %>
+        <li class="nav-anchor">
+          <%= link_to(new_user_session_path) do%>
+            <i class="fas fa-user-circle" style="font-size: 22px "> Log-in</i>
+          <% end %>
         </li>
       <% end %>
     </ul>
