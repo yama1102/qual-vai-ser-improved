@@ -6,8 +6,8 @@
     <div style="width:1100px; height: 750px;" class="group-chat-container d-flex justify-content-around">
       <div class="group-container mx-2">
         <h3 class="text-center">Membros</h3>
-        <div style="height: 165px;" class="d-flex group-card p-3 mb-3">
-            <% @group.members.each do |member| %>
+        <div style="height: 165px;" class="d-flex group-card p-3 mb-3 flex-wrap">
+          <% @group.members.each do |member| %>
             <div class="mx-3">
               <% if member.user.photo.attached? %>
                 <%= cl_image_tag member.user.photo.key, class: "avatar"%>
