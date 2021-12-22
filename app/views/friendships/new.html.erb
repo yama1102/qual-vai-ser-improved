@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center align-items-center flex-column mt-3">
 
-  <div style="" class="group-chat-container d-flex flex-column justify-content-center text-center mt-3">
+  <div style="width: 920px;" class="group-chat-container d-flex flex-column justify-content-center text-center mt-3">
     <h3><strong>Amigos</strong></h3>
     <div style="color: white;">
       <div class="group-card d-flex p-3">
@@ -13,42 +13,40 @@
       </div>
     </div>
     <h5 class="mt-2"></h5>
-    <div style="width: 800px; height:100px" class="group-card justify-content-center align-itens-center pt-4 mx-1" >
-      <%= form_with url: search_friendships_url, method: :get do %>
+    <div style="height:100px" class="group-card justify-content-center align-itens-center pt-4 mx-1" >
+      <%= form_with url: new_friendship_path, method: :get do %>
         <div class="d-flex justify-content-around align-itens-center mt-1">
           <div id="group-input" style="height: 40px; width:610px;"class="container d-flex justify-content-center align-itens-center">
             <%= text_field_tag :nickname, params[:nickname], class: "form-control", placeholder: "Digite um nome para encontrar seus amigos!" %>
           </div>
-          <div style="text-align;" class="mr-3">
+          <div style="text-align;" class="mr-5">
             <%= submit_tag 'Pesquisar', class: "btn botton-search" %>
           </div>
         </div>
       <% end %>
     </div>
+    <div class="d-flex flex-wrap">
+      <% @users.each do |user|%>
+          <div class="group-card mx-2 p-2 mt-3">
+            <%= simple_form_for @friendship do |f| %>
+              <div style="text-align: center;"> <h5>
+                <%= cl_image_tag user.photo.key, class:"avatar-large" if user.photo.attached? %></h5>
+              </div>
+              <div style="text-align: center;">
+                <%= user.nickname %>
+              </div>
+              <%= f.hidden_field :user_id, value: user.id%>
+              <div class="button-add-friends">
+                <%= f.submit "Adicionar", class: "btn-add-friends btn-sm"%>
+              </div>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="row justify-content-around  container-events ">
-  <% @users.each do |user|%>
-    <div class="row card m-3 radius-10 col-2 group-chat-container"  style=" width: 15rem;">
-      <div class="card-body"id="bg-card">
-        <%= simple_form_for @friendship do |f| %>
-          <div style="text-align: center;"> <h5>
-            <%= cl_image_tag user.photo.key, class:"avatar-large" if user.photo.attached? %></h5>
-          </div>
-          <div style="text-align: center;">
-            <%= user.nickname %>
-          </div>
-          <%= f.hidden_field :user_id, value: user.id%>
-          <div class="button-add-friends">
-            <%= f.submit "Adicionar", class: "btn btn-outline-dark btn-sm"%>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
 
-<div class="box-bottons" style="text-align: center;">
+<div class="box-bottons mt-3" style="text-align: center;">
   <%= link_to 'Voltar', profiles_path, class: "btn botton-back" %>
 </div>
