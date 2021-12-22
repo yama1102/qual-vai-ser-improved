@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   resource :profiles, only: %i[show]
-  resources :friendships, only: %i[new create] do
+  resources :friendships, only: %i[new create destroy] do
     collection do
       get :search
     end
