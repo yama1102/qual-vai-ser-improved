@@ -9,7 +9,7 @@
             <%= cl_image_tag user.photo.key, class:"avatar-large" if user.photo.attached? %>
             <%= user.nickname %>
             <a href=<%= friendship_path(user) %> data-method="delete" data-confirm="Tem certeza para remover este amigo?" class="ml-1">
-              <i style="font-size:10px;" class="fas fa-user-slash text-white"></i>
+              <i style="font-size:10px;" class="fas fa-user-slash text-white" title="Remover"></i>
             </a>
           </div>
         <% end %>

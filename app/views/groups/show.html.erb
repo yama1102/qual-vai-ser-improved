@@ -16,7 +16,7 @@
                 <p style="font-size:12px;" class="text-center"><%= member.user.nickname %></p>
                 <% unless member.user == current_user %>
                   <a href=<%= member_path(member) %> data-method="delete" data-confirm="Tem certeza para remover este membro?" class="ml-1">
-                    <i style="font-size:10px;" class="fas fa-user-slash text-white"></i>
+                    <i style="font-size:10px;" class="fas fa-user-slash text-white" title="Remover"></i>
                   </a>
                 <% end %>
               </div>
