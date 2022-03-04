@@ -1,7 +1,7 @@
 .photo img {
   border-radius: 10px;
   height: 438px;
-  width: 75%;
+  width: 100%;
 }
 
 .photo {
@@ -25,7 +25,7 @@
 .event-content {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 250px;
   background-color: rgba(35, 37, 42, 0.9);
   border-radius: 20px;
   padding: 15px;
@@ -33,16 +33,25 @@
 }
 
 .event-info {
-  margin: 20px 5px 20px 30px;
-  width: 50%;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
   text-align: center;
-  justify-content: center;
+  // justify-content: center;
 }
 
 .event-description {
-  margin: 20px 30px 20px 5px;
-  width: 50%;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 20px;
+  // width: 75%;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  background-color: rgba(35, 37, 42, 0.9);
+  border-radius: 20px;
+  padding: 15px;
+  color: white;
   overflow: auto;
   p {
     font-size: 14px;

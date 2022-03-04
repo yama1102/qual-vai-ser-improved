@@ -1,30 +1,36 @@
-<div class="photo">
-  <%= cl_image_tag @event.photo.key, crop: :fill %>
-</div>
+<div class="d-flex justify-content-center">
+  <div style="width: 75%" class="group-chat-container mx-3 my-2 d-flex flex-column align-self-center">
+    <div class="photo mt-1">
+      <%= cl_image_tag @event.photo.key, crop: :fill %>
+    </div>
 
-<div class="event-box">
-  <div class="event-content event-info">
+    <div class="event-content event-info align-self-center">
+        <h4><strong><%= @event.name %></strong></h4>
+        <p><strong>Endereço: </strong><%= @event.address %></p>
+        <p><strong>Região: </strong><%= @event.region %></p>
+        <p><strong>Preço: A partir de </strong><%= @event.price %></p>
+        <p><strong>Data: </strong><%= @event.date.split(",")[0] %></p>
+    </div>
 
-      <h4><strong><%= @event.name %></strong></h4>
-      <p><strong>Endereço: </strong><%= @event.address %></p>
-      <p><strong>Região: </strong><%= @event.region %></p>
-      <p><strong>Preço: A partir de </strong><%= @event.price %></p>
-      <p><strong>Data: </strong><%= @event.date.split(",")[0] %></p>
-
+    <div class="d-flex justify-content-center align-self-center" style="width:100%;">
+      <div class="event-description">
+        <p><strong>Descrição: </strong><%= @event.description %></p>
+      </div>
+      <div class="geocoding">
+        <% if @markers %>
+          <div id="map"
+              style="width: 400px; height: 400px; margin-top: 20px; margin-bottom: 20px; margin-left: 20px; margin-right: 0px;"
+              data-markers="<%= @markers.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="event-content event-description">
-    <p><strong>Descrição: </strong><%= @event.description %></p>
-  </div>
 </div>
 
-<div class="geocoding">
-  <% if @markers %>
-    <div id="map"
-        style="width: 600px; height: 400px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  <% end %>
-</div>
+
+
+
 
 <div class="box-bottons">
   <div class="favoritar" style="text-align: center">
